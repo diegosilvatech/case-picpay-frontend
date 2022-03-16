@@ -4,13 +4,15 @@ import {
   Route
 } from 'react-router-dom';
 
-import Home from 'pages/Home';
+import LoginPage from 'pages/LoginPage';
+import PaymentsPage from 'pages/PaymentsPage';
 
 export default function Routes() {
   return (
     <BrowserRouter>
       <ReactRouterRoutes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/payments" element={<PaymentsPage />} />
       </ReactRouterRoutes>
     </BrowserRouter>
   );
