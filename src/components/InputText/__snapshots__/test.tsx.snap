@@ -1,0 +1,132 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<InputText /> should render with error 1`] = `
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  color: #000000;
+}
+
+.c0 .c3 {
+  border: 0.25rem solid #DD2C00;
+}
+
+.c0 .c3:focus-within {
+  box-shadow: 0 0 0.25rem #DD2C00;
+}
+
+.c0 .c8,
+.c0 .c1 {
+  color: #DD2C00;
+}
+
+.c0 .c5 svg {
+  color: #DD2C00;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  background: #FFFFFF;
+  border-radius: 0.5rem;
+  padding: 0 1rem;
+  border: 0.25rem solid;
+}
+
+.c4:focus-within {
+  box-shadow: 0 0 0.25rem #11c76f;
+}
+
+.c9 {
+  color: #000000;
+  font-family: Montserrat,Poppins,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
+  padding: 2rem 0;
+  padding-left: 1rem;
+  background: transparent;
+  border: none;
+  outline: none;
+  width: 100%;
+}
+
+.c2 {
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: #000000;
+  cursor: pointer;
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-order: 0;
+  -ms-flex-order: 0;
+  order: 0;
+}
+
+.c10 {
+  color: #DD2C00;
+  font-size: 1.6rem;
+}
+
+<div
+  aria-label="InputText component"
+  class="c0"
+>
+  <label
+    class="c1 c2"
+    for="inputText"
+  >
+    inputText
+  </label>
+  <div
+    class="c3 c4"
+  >
+    <div
+      class="c5 c6"
+    >
+      <div
+        aria-label="IconBase component"
+        class="c7"
+      >
+        <svg
+          data-testid="mail-icon"
+          fill="none"
+          height="24px"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+          />
+          <polyline
+            points="22,6 12,13 2,6"
+          />
+        </svg>
+      </div>
+    </div>
+    <input
+      class="c8 c9"
+      id="inputText"
+      name="inputText"
+      type="text"
+      value=""
+    />
+  </div>
+  <p
+    class="c10"
+  >
+    error message
+  </p>
+</div>
+`;
