@@ -1,5 +1,4 @@
-import { Container, InputText } from 'components';
-import { MailIcon } from 'assets/icons';
+import { Container, FormLogin } from 'components';
 
 import * as s from './styles';
 
@@ -7,7 +6,9 @@ export default function LoginPage() {
   return (
     <s.Wrapper>
       <Container>
-        <InputText icon={<MailIcon />} iconPosition="left" />
+        <s.FormWrapper>
+          <FormLogin />
+        </s.FormWrapper>
       </Container>
     </s.Wrapper>
   );
