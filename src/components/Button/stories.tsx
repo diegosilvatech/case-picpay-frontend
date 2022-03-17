@@ -6,7 +6,9 @@ export default {
   component: Button,
   args: {
     variant: 'primary',
-    children: 'button label'
+    children: 'button label',
+    type: 'button',
+    fullWidth: false
   },
   parameters: {
     jest: ['Button.test.tsx']

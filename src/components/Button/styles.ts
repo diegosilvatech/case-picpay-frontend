@@ -23,7 +23,7 @@ const buttonModifiers = {
 };
 
 export const ButtonWrapper = styled.button<ButtonProps>`
-  ${({ theme, variant }) => css`
+  ${({ theme, variant, fullWidth }) => css`
     border: none;
     border-radius: ${theme.border.radius.small};
     padding: ${theme.spacings.medium} ${theme.spacings.medium};
@@ -32,6 +32,7 @@ export const ButtonWrapper = styled.button<ButtonProps>`
     font-weight: ${theme.font.weights.semiBold};
     letter-spacing: 0.2rem;
     text-transform: uppercase;
+    width: ${fullWidth ? '100%' : 'unset'};
 
     &:hover {
       cursor: pointer;
