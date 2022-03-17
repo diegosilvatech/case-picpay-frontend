@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { InputText } from 'components';
 import { InputTextProps } from 'components/InputText';
 
@@ -9,19 +8,12 @@ const InputPassword = ({
   error,
   icon,
   iconPosition = 'left',
-  initialValue = '',
   label,
   name,
-  onInput,
+  value,
+  onChange,
   ...props
 }: InputPasswordProps) => {
-  const [value, setValue] = useState(initialValue);
-  const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const newValue = event.currentTarget.value;
-    setValue(newValue);
-
-    !!onInput && onInput(newValue);
-  };
   return (
     <InputText
       name={name}
