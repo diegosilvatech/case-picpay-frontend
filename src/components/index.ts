@@ -1,4 +1,5 @@
 /* PLOP_INJECT_IMPORT */
+import InputPassword from './InputPassword';
 import InputText from './InputText';
 import MediaMatch from './MediaMatch';
 import Text from './Text';
@@ -9,6 +10,7 @@ import Icon from './Icon';
 
 export {
   /* PLOP_INJECT_EXPORT */
+  InputPassword,
   InputText,
   MediaMatch,
   Text,

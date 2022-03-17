@@ -30,6 +30,7 @@ const InputText = ({
 
     !!onInput && onInput(newValue);
   };
+
   return (
     <s.Wrapper
       aria-label="InputText component"
