@@ -4,19 +4,31 @@ import { MailIcon, LockIcon } from 'assets/icons';
 import * as s from './styles';
 import React from 'react';
 
-export type FormLoginProps = {
-  onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
+export type DataProps = {
+  email: string;
+  setEmail: (email: string) => void;
+  password: string;
+  setPassword: (password: string) => void;
 };
 
-const FormLogin = ({ onSubmit }: FormLoginProps) => {
+export type FormLoginProps = {
+  onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
+  data: DataProps;
+};
+
+const FormLogin = ({ onSubmit, data }: FormLoginProps) => {
+  console.log(data);
   return (
     <s.Wrapper aria-label="FormLogin component" onSubmit={onSubmit}>
       <s.FieldWrapper>
         <InputText
           label="e-mail"
           name="email"
+          type="email"
           placeholder="e-mail"
           icon={<MailIcon />}
+          value={data.email}
+          onChange={(event) => data.setEmail(event.target.value)}
         />
       </s.FieldWrapper>
       <s.FieldWrapper>
@@ -25,6 +37,8 @@ const FormLogin = ({ onSubmit }: FormLoginProps) => {
           name="password"
           placeholder="password"
           icon={<LockIcon />}
+          value={data.password}
+          onChange={(event) => data.setPassword(event.target.value)}
         />
       </s.FieldWrapper>
       <s.ButtonWrapper>
