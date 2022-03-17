@@ -3,7 +3,10 @@ export default {
     primary: '#11c76f',
 
     white: '#FFFFFF',
-    black: '#000000'
+    black: '#000000',
+
+    error: '#DD2C00',
+    gray: '#00000080'
   },
   grid: {
     smarthphone: {
