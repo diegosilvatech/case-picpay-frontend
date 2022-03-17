@@ -10,7 +10,7 @@ export default {
   },
   args: {
     name: 'arrowDown',
-    color: 'primary'
+    color: 'black'
   },
   argTypes: {
     name: {
