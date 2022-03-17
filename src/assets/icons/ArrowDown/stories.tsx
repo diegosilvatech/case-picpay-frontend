@@ -6,7 +6,7 @@ export default {
   title: '@Icon/ArrowDown',
   component: ArrowDownIcon,
   args: {
-    color: 'primary'
+    color: 'black'
   }
 } as Meta;
 
