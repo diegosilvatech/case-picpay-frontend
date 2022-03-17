@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<InputText /> should render with error 1`] = `
-.c7 {
+.c8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -9,24 +9,24 @@ exports[`<InputText /> should render with error 1`] = `
   color: #000000;
 }
 
-.c0 .c3 {
+.c0 .c4 {
   border: 0.25rem solid #DD2C00;
 }
 
-.c0 .c3:focus-within {
+.c0 .c4:focus-within {
   box-shadow: 0 0 0.25rem #DD2C00;
 }
 
-.c0 .c8,
-.c0 .c1 {
+.c0 .c9,
+.c0 .c2 {
   color: #DD2C00;
 }
 
-.c0 .c5 svg {
+.c0 .c6 svg {
   color: #DD2C00;
 }
 
-.c4 {
+.c5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -37,11 +37,11 @@ exports[`<InputText /> should render with error 1`] = `
   border: 0.25rem solid;
 }
 
-.c4:focus-within {
+.c5:focus-within {
   box-shadow: 0 0 0.25rem #11c76f;
 }
 
-.c9 {
+.c10 {
   color: #000000;
   font-family: Montserrat,Poppins,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
   padding: 2rem 0;
@@ -52,14 +52,17 @@ exports[`<InputText /> should render with error 1`] = `
   width: 100%;
 }
 
-.c2 {
+.c1 {
+  margin-bottom: 0.5rem;
+}
+
+.c3 {
   font-size: 1.75rem;
   font-weight: 400;
   color: #000000;
-  cursor: pointer;
 }
 
-.c6 {
+.c7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -73,7 +76,7 @@ exports[`<InputText /> should render with error 1`] = `
   order: 0;
 }
 
-.c10 {
+.c11 {
   color: #DD2C00;
   font-size: 1.6rem;
 }
@@ -82,21 +85,25 @@ exports[`<InputText /> should render with error 1`] = `
   aria-label="InputText component"
   class="c0"
 >
-  <label
-    class="c1 c2"
-    for="inputText"
-  >
-    inputText
-  </label>
   <div
-    class="c3 c4"
+    class="c1"
+  >
+    <label
+      class="c2 c3"
+      for="inputText"
+    >
+      inputText
+    </label>
+  </div>
+  <div
+    class="c4 c5"
   >
     <div
-      class="c5 c6"
+      class="c6 c7"
     >
       <div
         aria-label="IconBase component"
-        class="c7"
+        class="c8"
       >
         <svg
           data-testid="mail-icon"
@@ -116,7 +123,7 @@ exports[`<InputText /> should render with error 1`] = `
       </div>
     </div>
     <input
-      class="c8 c9"
+      class="c9 c10"
       id="inputText"
       name="inputText"
       type="text"
@@ -124,7 +131,7 @@ exports[`<InputText /> should render with error 1`] = `
     />
   </div>
   <p
-    class="c10"
+    class="c11"
   >
     error message
   </p>

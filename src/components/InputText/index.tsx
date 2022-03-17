@@ -37,7 +37,11 @@ const InputText = ({
       error={!!error}
       disabled={disabled}
     >
-      {!!label && <s.Label htmlFor={name}>{label}</s.Label>}
+      {!!label && (
+        <s.LabelWrapper>
+          <s.Label htmlFor={name}>{label}</s.Label>
+        </s.LabelWrapper>
+      )}
       <s.InputWrapper>
         {!!icon && (
           <s.IconWrapper iconPosition={iconPosition}>{icon}</s.IconWrapper>

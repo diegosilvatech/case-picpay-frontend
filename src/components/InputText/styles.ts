@@ -79,12 +79,17 @@ export const Input = styled.input<IconPositionProps>`
   `}
 `;
 
+export const LabelWrapper = styled.div`
+  ${({ theme }) => css`
+    margin-bottom: ${theme.spacings.extraSmall};
+  `}
+`;
+
 export const Label = styled.label`
   ${({ theme }) => css`
     font-size: ${theme.font.sizes.default};
     font-weight: ${theme.font.weights.regular};
     color: ${theme.colors.black};
-    cursor: pointer;
   `}
 `;
 
