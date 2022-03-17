@@ -17,8 +17,7 @@ export const icons: any = {
 
 export type IconNameTypes =
   /* PLOP_INJECT_ICON_TYPES */
-  'lock';
-'mail' | 'arrowDown';
+  'lock' | 'mail' | 'arrowDown';
 export type IconProps = { name: IconNameTypes; color: ColorStyleProps };
 const Icon = ({ name, color }: IconProps) => {
   const Element = icons[name];
