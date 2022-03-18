@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 
-import { AuthContext } from 'contexts';
+import { AuthContext } from 'core/contexts';
 
 import { Button, Container } from 'components';
 
