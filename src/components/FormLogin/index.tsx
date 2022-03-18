@@ -17,7 +17,6 @@ export type FormLoginProps = {
 };
 
 const FormLogin = ({ onSubmit, data }: FormLoginProps) => {
-  console.log(data);
   return (
     <s.Wrapper aria-label="FormLogin component" onSubmit={onSubmit}>
       <s.FieldWrapper>
