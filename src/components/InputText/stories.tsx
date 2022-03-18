@@ -5,7 +5,7 @@ import { MailIcon } from 'assets/icons';
 import InputText, { InputTextProps } from '.';
 
 export default {
-  title: 'Molecule/Form/InputText',
+  title: 'Molecules/Form/InputText',
   component: InputText,
   decorators: [
     (Story) => (

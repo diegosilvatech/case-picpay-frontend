@@ -7,7 +7,7 @@ import { Container, FormLogin } from 'components';
 import * as s from './styles';
 
 export default function LoginPage() {
-  const { authenticated, login } = useContext(AuthContext);
+  const { login } = useContext(AuthContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -28,7 +28,6 @@ export default function LoginPage() {
     <s.Wrapper>
       <Container>
         <s.FormWrapper>
-          <p>LOGADO? {`${authenticated}`} </p>
           <FormLogin onSubmit={onSubmit} data={formData} />
         </s.FormWrapper>
       </Container>

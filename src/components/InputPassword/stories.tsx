@@ -5,7 +5,7 @@ import { LockIcon } from 'assets/icons';
 import InputPassword, { InputPasswordProps } from '.';
 
 export default {
-  title: 'Molecule/Form/InputPassword',
+  title: 'Molecules/Form/InputPassword',
   component: InputPassword,
   decorators: [
     (Story) => (

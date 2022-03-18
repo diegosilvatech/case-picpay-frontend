@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import FormLogin, { FormLoginProps } from '.';
 
 export default {
-  title: 'Organism/Form/FormLogin',
+  title: 'Organisms/Form/FormLogin',
   component: FormLogin,
   parameters: {
     jest: ['FormLogin.test.tsx']
