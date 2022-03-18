@@ -1,3 +1,3 @@
-import api from './api';
+import { api, getCredentials } from './api';
 
-export { api };
+export { api, getCredentials };

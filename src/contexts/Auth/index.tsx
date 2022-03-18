@@ -1,13 +1,12 @@
 import { useState, useEffect, createContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { mockedUserCredentials } from './mock';
+import { getCredentials } from 'core/services';
 
 type UserProps = {
   id: number;
   name: string;
   email: string;
-  password: string;
 } | null;
 
 type AuthProviderValueProps = {
@@ -24,7 +23,7 @@ type AuthProviderProps = {
 
 export const AuthContext = createContext<AuthProviderValueProps>({
   authenticated: false,
-  user: { id: 0, name: '', email: '', password: '' },
+  user: { id: 0, name: '', email: '' },
   login: () => ({}),
   logout: () => ({}),
   loading: false
@@ -44,20 +43,21 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     setLoading(false);
   }, []);
 
-  const login = (email: string, password: string) => {
-    const loggedUser = {
-      id: 111,
-      name: 'diego',
-      email,
-      password
+  const login = async (email: string, password: string) => {
+    const response = await getCredentials();
+    const account = response.data[0];
+
+    const hasValidCredentials = (email: string, password: string) => {
+      return account.email === email && account.password === password;
     };
 
-    console.log('login auth', { email, password });
+    const loggedUser = {
+      id: account.id,
+      name: account.name,
+      email: account.email
+    };
 
-    if (
-      email === mockedUserCredentials.email &&
-      password === mockedUserCredentials.password
-    ) {
+    if (hasValidCredentials(email, password)) {
       localStorage.setItem('user', JSON.stringify(loggedUser));
       setUser(loggedUser);
       navigate('/');
