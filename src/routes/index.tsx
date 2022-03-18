@@ -1,7 +1,7 @@
 import {
-  BrowserRouter,
-  Routes as ReactRouterRoutes,
-  Route
+  BrowserRouter as Router,
+  Route,
+  Routes as ReactRouterRoutes
 } from 'react-router-dom';
 
 import LoginPage from 'pages/LoginPage';
@@ -9,11 +9,11 @@ import PaymentsPage from 'pages/PaymentsPage';
 
 export default function Routes() {
   return (
-    <BrowserRouter>
+    <Router>
       <ReactRouterRoutes>
-        <Route path="/" element={<LoginPage />} />
-        <Route path="/payments" element={<PaymentsPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/" element={<PaymentsPage />} />
       </ReactRouterRoutes>
-    </BrowserRouter>
+    </Router>
   );
 }
