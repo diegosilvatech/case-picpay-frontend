@@ -9,7 +9,6 @@ export type InputTextProps = {
   disabled?: boolean;
   error?: string;
   value?: string;
-  onInput?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 } & InputHTMLAttributes<HTMLInputElement>;
 
 const InputText = ({

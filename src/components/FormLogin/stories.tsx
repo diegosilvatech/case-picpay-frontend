@@ -3,10 +3,16 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import FormLogin, { FormLoginProps } from '.';
 
 export default {
-  title: 'FormLogin',
+  title: 'Organism/Form/FormLogin',
   component: FormLogin,
   parameters: {
     jest: ['FormLogin.test.tsx']
+  },
+  args: {
+    data: {
+      email: 'diego.silva@picpay.com',
+      password: '#mecontrata'
+    }
   }
 } as Meta;
 
