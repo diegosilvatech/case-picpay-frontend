@@ -1,4 +1,6 @@
 /* PLOP_INJECT_IMPORT */
+import Logo from './Logo';
+import Menu from './Menu';
 import FormLogin from './FormLogin';
 import InputPassword from './InputPassword';
 import InputText from './InputText';
@@ -11,6 +13,8 @@ import Icon from './Icon';
 
 export {
   /* PLOP_INJECT_EXPORT */
+  Logo,
+  Menu,
   FormLogin,
   InputPassword,
   InputText,
