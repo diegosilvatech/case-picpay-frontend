@@ -17,7 +17,11 @@ type PrivateRouteProps = {
 
 export default function Routes() {
   const PrivateRoute = ({ children }: PrivateRouteProps) => {
-    const { authenticated } = useContext(AuthContext);
+    const { authenticated, loading } = useContext(AuthContext);
+
+    if (loading) {
+      return <div>carregando...</div>;
+    }
 
     if (!authenticated) {
       return <Navigate to="/login" />;

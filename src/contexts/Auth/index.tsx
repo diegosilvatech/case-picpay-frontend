@@ -1,7 +1,11 @@
-import { useState, createContext } from 'react';
+import { useState, useEffect, createContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import { mockedUserCredentials } from './mock';
+
 type UserProps = {
+  id: number;
+  name: string;
   email: string;
   password: string;
 } | null;
@@ -9,6 +13,7 @@ type UserProps = {
 type AuthProviderValueProps = {
   authenticated: boolean;
   user: UserProps;
+  loading: boolean;
   login: (email: string, password: string) => void;
   logout: () => void;
 };
@@ -19,26 +24,48 @@ type AuthProviderProps = {
 
 export const AuthContext = createContext<AuthProviderValueProps>({
   authenticated: false,
-  user: { email: '', password: '' },
+  user: { id: 0, name: '', email: '', password: '' },
   login: () => ({}),
-  logout: () => ({})
+  logout: () => ({}),
+  loading: false
 });
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [user, setUser] = useState<UserProps>(null);
-
+  const [loading, setLoading] = useState<boolean>(true);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const recoveredUser = localStorage.getItem('user');
+
+    if (recoveredUser) {
+      setUser(JSON.parse(recoveredUser));
+    }
+    setLoading(false);
+  }, []);
+
   const login = (email: string, password: string) => {
+    const loggedUser = {
+      id: 111,
+      name: 'diego',
+      email,
+      password
+    };
+
     console.log('login auth', { email, password });
 
-    if (email === 'usuario@gmail.com' && password === 'usuario') {
-      setUser({ email, password });
+    if (
+      email === mockedUserCredentials.email &&
+      password === mockedUserCredentials.password
+    ) {
+      localStorage.setItem('user', JSON.stringify(loggedUser));
+      setUser(loggedUser);
       navigate('/');
     }
   };
 
   const logout = () => {
+    localStorage.removeItem('user');
     setUser(null);
     navigate('/login');
   };
@@ -47,7 +74,8 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     authenticated: !!user,
     user,
     login,
-    logout
+    logout,
+    loading
   };
 
   return (
