@@ -18,12 +18,11 @@ export default {
     jest: ['InputText.test.tsx']
   },
   args: {
-    label: 'e-mail',
     name: 'email',
+    label: 'e-mail',
     placeholder: 'diego.silva@picpay.com',
     icon: <MailIcon />,
     iconPosition: 'left',
-    initialValue: '',
     disabled: false
   },
   argTypes: {
@@ -36,5 +35,9 @@ export const InputTextDefault: Story<InputTextProps> = (args) => (
 );
 
 export const InputTextWithError: Story<InputTextProps> = (args) => (
-  <InputText error="...something is wrong" {...args} />
+  <InputText {...args} />
 );
+
+InputTextWithError.args = {
+  error: '...something is wrong'
+};

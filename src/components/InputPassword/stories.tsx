@@ -21,10 +21,9 @@ export default {
     label: 'password',
     name: 'password',
     placeholder: 'password',
+    disabled: false,
     icon: <LockIcon />,
-    iconPosition: 'left',
-    initialValue: '',
-    disabled: false
+    iconPosition: 'left'
   },
   argTypes: {
     onChange: { action: 'changed' }
@@ -36,5 +35,9 @@ export const InputPasswordDefault: Story<InputPasswordProps> = (args) => (
 );
 
 export const InputPasswordWithError: Story<InputPasswordProps> = (args) => (
-  <InputPassword error="...something is wrong" {...args} />
+  <InputPassword {...args} />
 );
+
+InputPasswordWithError.args = {
+  error: '...something is wrong'
+};

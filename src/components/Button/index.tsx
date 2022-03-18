@@ -11,9 +11,9 @@ export type ButtonProps = {
 const Button = ({
   variant = 'primary',
   children,
-  onClick,
   type = 'button',
-  fullWidth = false
+  fullWidth = false,
+  onClick
 }: ButtonProps) => (
   <s.ButtonWrapper
     variant={variant}
