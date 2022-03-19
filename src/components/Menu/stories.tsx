@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import Menu, { MenuProps } from '.';
 
 export default {
-  title: 'Menu',
+  title: 'Organisms/Menu',
   component: Menu,
   parameters: {
     jest: ['Menu.test.tsx']
