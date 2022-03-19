@@ -3,6 +3,7 @@ import { Table as AntdTable, Tag as AntdTag, Space as AntdSpace } from 'antd';
 import { Text } from 'components';
 import { theme } from 'styles';
 import { formatDate, getHourFromDate } from 'core/helpers/date';
+import { formatCurrency } from 'core/helpers/currency';
 
 import { PaymentDataProps, PaymentListDataProps } from './mock';
 import * as s from './styles';
@@ -81,11 +82,11 @@ const Table = ({ data }: TableProps) => {
       title: 'Valor',
       key: 'value',
       dataIndex: 'value',
-      render: (text: string) => (
+      render: (text: number) => (
         <s.UserInfoWrapper>
           <s.UserInfo>
-            <Text type="span" color="black" size="small">
-              {text}
+            <Text type="span" color="black" size="small" weight="semiBold">
+              {formatCurrency(text)}
             </Text>
           </s.UserInfo>
         </s.UserInfoWrapper>
@@ -99,7 +100,7 @@ const Table = ({ data }: TableProps) => {
         if (status) {
           return <AntdTag color={theme.colors.primary}>PAGO</AntdTag>;
         }
-        return <AntdTag color={theme.colors.error}>PENDENTE</AntdTag>;
+        return <AntdTag color={theme.colors.black}>PENDENTE</AntdTag>;
       }
     },
     {
