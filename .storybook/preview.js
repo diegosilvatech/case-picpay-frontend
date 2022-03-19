@@ -30,6 +30,10 @@ export const parameters = {
       {
         name: 'black',
         value: theme.colors.black
+      },
+      {
+        name: 'primary',
+        value: theme.colors.primary
       }
     ]
   },
