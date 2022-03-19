@@ -5,7 +5,7 @@ import Table, { TableProps } from '.';
 import { mockedPaymentListData } from './mock';
 
 export default {
-  title: 'Table',
+  title: 'Organisms/Table',
   component: Table,
   parameters: {
     jest: ['Table.test.tsx']
