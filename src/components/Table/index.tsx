@@ -2,7 +2,7 @@ import { Table as AntdTable, Tag as AntdTag, Space as AntdSpace } from 'antd';
 
 import { Text } from 'components';
 import { theme } from 'styles';
-import { formatDate, getHourFromDate } from 'core/helpers/date/formatDate';
+import { formatDate, getHourFromDate } from 'core/helpers/date';
 
 import { PaymentDataProps, PaymentListDataProps } from './mock';
 import * as s from './styles';
