@@ -1,4 +1,5 @@
 /* PLOP_INJECT_IMPORT */
+import Table from './Table';
 import Logo from './Logo';
 import Menu from './Menu';
 import FormLogin from './FormLogin';
@@ -13,6 +14,7 @@ import Icon from './Icon';
 
 export {
   /* PLOP_INJECT_EXPORT */
+  Table,
   Logo,
   Menu,
   FormLogin,
