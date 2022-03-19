@@ -2,7 +2,7 @@ import { useContext } from 'react';
 
 import { AuthContext } from 'core/contexts';
 
-import { Button, Container } from 'components';
+import { Container, Menu } from 'components';
 
 import * as s from './styles';
 
@@ -11,10 +11,8 @@ export default function PaymentsPage() {
 
   return (
     <s.Wrapper>
-      <Container>
-        <h1>Olá, {`${user?.name}`}</h1>
-        <Button onClick={() => logout()}>LOGOUT/</Button>
-      </Container>
+      <Menu user={user} onLogout={logout} />
+      <Container></Container>
     </s.Wrapper>
   );
 }
