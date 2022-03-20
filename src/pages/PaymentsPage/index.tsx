@@ -2,7 +2,7 @@ import { useContext, useState, useEffect } from 'react';
 
 import { AuthContext, PaymentsProvider, PaymentsContext } from 'contexts';
 
-import { Container, Menu, Text, Button, Table } from 'components';
+import { Container, Menu, Text, Button, Table, ModalAdd } from 'components';
 
 import * as s from './styles';
 
@@ -12,6 +12,8 @@ export default function PaymentsPage() {
 
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [pageSize, setPageSize] = useState<number>(10);
+
+  const [showEditModal, setShowEditModal] = useState<boolean>(false);
 
   const handlePageChange = (currentPage: number, pageSize: number) => {
     setCurrentPage(currentPage), setPageSize(pageSize);
@@ -26,6 +28,10 @@ export default function PaymentsPage() {
 
   return (
     <PaymentsProvider>
+      <ModalAdd
+        visible={showEditModal}
+        onClose={() => setShowEditModal(false)}
+      />
       <s.Wrapper>
         <Menu user={user} onLogout={logout} />
         <Container>
@@ -33,7 +39,9 @@ export default function PaymentsPage() {
             <Text type="h1" size="extraLarge" weight="semiBold">
               Meus pagamentos
             </Text>
-            <Button>Adicionar pagamento</Button>
+            <Button onClick={() => setShowEditModal(true)}>
+              Adicionar pagamento
+            </Button>
           </s.HeaderWrapper>
 
           <s.TableWrapper>

@@ -2,11 +2,11 @@ import { Table as AntdTable, Tag as AntdTag, Space as AntdSpace } from 'antd';
 
 import { formatDate, getHourFromDate } from 'core/helpers/date';
 import { formatCurrency } from 'core/helpers/currency';
+import { PaymentRecordProps } from 'core/types/payments/globals';
+import { theme } from 'styles';
+import { PencilIcon, BinIcon } from 'assets/icons';
 
 import { Text } from 'components';
-import { PencilIcon, BinIcon } from 'assets/icons';
-import { theme } from 'styles';
-import { PaymentRecordProps } from 'core/types/payments/globals';
 
 import * as s from './styles';
 
