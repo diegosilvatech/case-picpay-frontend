@@ -8,10 +8,9 @@ const getCredentials = async () => {
   return api.get('/account');
 };
 
-const defaultReacordsAmount = 10;
-
-const getPaymentList = async (recordsAmount = defaultReacordsAmount) => {
-  return api.get(`/tasks?_limit=${recordsAmount}`);
+const getPaymentList = async () => {
+  console.log('CHAMOU API');
+  return api.get(`/tasks`);
 };
 
 export { api, getCredentials, getPaymentList };

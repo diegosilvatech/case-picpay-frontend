@@ -1,6 +1,6 @@
-import { PaymentProps } from '.';
+import { PaymentRecordProps } from 'core/types/payments/globals';
 
-export const mockedTableData: PaymentProps[] = [
+export const mockedTableData: PaymentRecordProps[] = [
   {
     id: 1,
     name: 'Diego Silva',

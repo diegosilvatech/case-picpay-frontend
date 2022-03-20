@@ -2,20 +2,11 @@ import { createContext, useState } from 'react';
 
 import { getPaymentList } from 'core/services';
 
-export type PaymentProps = {
-  id: number;
-  name: string;
-  username: string;
-  title: string;
-  value: number;
-  date: string;
-  image: string;
-  isPayed: boolean;
-};
+import { PaymentRecordProps } from 'core/types/payments/globals';
 
 export type PaymentsProviderValueProps = {
-  payments: PaymentProps[];
-  getPayments: (recordsAmount?: number) => void;
+  paymentRecords: PaymentRecordProps[];
+  getPayments: () => void;
 };
 
 export type PaymentProviderProps = {
@@ -23,20 +14,20 @@ export type PaymentProviderProps = {
 };
 
 export const PaymentsContext = createContext<PaymentsProviderValueProps>({
-  payments: [],
+  paymentRecords: [],
   getPayments: () => ({})
 });
 
 export const PaymentsProvider = ({ children }: PaymentProviderProps) => {
-  const [payments, setPayments] = useState([]);
+  const [paymentRecords, setPayments] = useState([]);
 
-  const getPayments = async (recordsAmount?: number) => {
-    const response = await getPaymentList(recordsAmount);
+  const getPayments = async () => {
+    const response = await getPaymentList();
     setPayments(response.data);
   };
 
   const paymentsProviderValue: PaymentsProviderValueProps = {
-    payments,
+    paymentRecords,
     getPayments
   };
 

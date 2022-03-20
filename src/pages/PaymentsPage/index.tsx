@@ -3,13 +3,12 @@ import { useContext, useState, useEffect } from 'react';
 import { AuthContext, PaymentsProvider, PaymentsContext } from 'contexts';
 
 import { Container, Menu, Text, Button, Table } from 'components';
-// import { mockedTableData } from 'components/Table/mock';
 
 import * as s from './styles';
 
 export default function PaymentsPage() {
   const { logout, user } = useContext(AuthContext);
-  const { getPayments, payments } = useContext(PaymentsContext);
+  const { getPayments, paymentRecords } = useContext(PaymentsContext);
 
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [pageSize, setPageSize] = useState<number>(10);
@@ -22,7 +21,8 @@ export default function PaymentsPage() {
     getPayments();
   }, []);
 
-  console.log('payments', { payments });
+  // console.log('paymentRecords', paymentRecords);
+  // console.log('amount', paymentRecords.length);
 
   return (
     <PaymentsProvider>
@@ -38,10 +38,11 @@ export default function PaymentsPage() {
 
           <s.TableWrapper>
             <Table
-              data={payments}
+              data={paymentRecords}
               currentPage={currentPage}
               pageSize={pageSize}
               handlePageChange={handlePageChange}
+              total={paymentRecords.length}
             />
           </s.TableWrapper>
         </Container>

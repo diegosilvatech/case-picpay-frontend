@@ -1,6 +1,6 @@
 import * as s from './styles';
 
-import { ColorStyleProps } from 'core/types/globals';
+import { ColorStyleProps } from 'core/types/styles/globals';
 
 export type LogoProps = {
   color?: ColorStyleProps;

@@ -6,36 +6,30 @@ import { formatCurrency } from 'core/helpers/currency';
 import { Text } from 'components';
 import { PencilIcon, BinIcon } from 'assets/icons';
 import { theme } from 'styles';
+import { PaymentRecordProps } from 'core/types/payments/globals';
 
 import * as s from './styles';
 
-export type PaymentProps = {
-  id: number;
-  name: string;
-  username: string;
-  title: string;
-  value: number;
-  date: string;
-  image: string;
-  isPayed: boolean;
-};
-
 export type TableProps = {
-  data: PaymentProps[];
+  data: PaymentRecordProps[];
   currentPage: number;
   pageSize: number;
   handlePageChange: (currentPage: number, pageSize: number) => void;
+  total: number;
 };
 
 const sortText = (
-  firstRecord: PaymentProps,
-  secondRecord: PaymentProps,
+  firstRecord: PaymentRecordProps,
+  secondRecord: PaymentRecordProps,
   parameter: 'name' | 'title' | 'date'
 ) => {
   return firstRecord[parameter].localeCompare(secondRecord[parameter]);
 };
 
-const sortNumber = (firstRecord: PaymentProps, secondRecord: PaymentProps) => {
+const sortNumber = (
+  firstRecord: PaymentRecordProps,
+  secondRecord: PaymentRecordProps
+) => {
   return firstRecord.value - secondRecord.value;
 };
 
@@ -43,6 +37,7 @@ const Table = ({
   data,
   currentPage,
   pageSize,
+  total,
   handlePageChange
 }: TableProps) => {
   const columns = [
@@ -50,7 +45,7 @@ const Table = ({
       title: '',
       dataIndex: 'image',
       key: 'image',
-      render: (text: string, record: PaymentProps) => (
+      render: (text: string, record: PaymentRecordProps) => (
         <s.UserInfoWrapper>
           <s.UserImageWrapper>
             <s.UserImage src={text} alt={record.name} />
@@ -62,7 +57,7 @@ const Table = ({
       title: 'Usuário',
       dataIndex: 'name',
       key: 'name',
-      render: (name: string, record: PaymentProps) => (
+      render: (name: string, record: PaymentRecordProps) => (
         <s.UserInfoWrapper>
           <s.UserInfo>
             <Text type="span" color="black" size="small">
@@ -76,7 +71,10 @@ const Table = ({
           </s.UserInfo>
         </s.UserInfoWrapper>
       ),
-      sorter: (firstRecord: PaymentProps, secondRecord: PaymentProps) => {
+      sorter: (
+        firstRecord: PaymentRecordProps,
+        secondRecord: PaymentRecordProps
+      ) => {
         return sortText(firstRecord, secondRecord, 'name');
       }
     },
@@ -93,7 +91,10 @@ const Table = ({
           </s.UserInfo>
         </s.UserInfoWrapper>
       ),
-      sorter: (firstRecord: PaymentProps, secondRecord: PaymentProps) => {
+      sorter: (
+        firstRecord: PaymentRecordProps,
+        secondRecord: PaymentRecordProps
+      ) => {
         return sortText(firstRecord, secondRecord, 'title');
       }
     },
@@ -101,7 +102,7 @@ const Table = ({
       title: 'Data',
       dataIndex: 'date',
       key: 'date',
-      render: (date: string, record: PaymentProps) => (
+      render: (date: string, record: PaymentRecordProps) => (
         <s.UserInfoWrapper>
           <s.UserInfo>
             <Text type="span" color="black" size="small">
@@ -115,7 +116,10 @@ const Table = ({
           </s.UserInfo>
         </s.UserInfoWrapper>
       ),
-      sorter: (firstRecord: PaymentProps, secondRecord: PaymentProps) => {
+      sorter: (
+        firstRecord: PaymentRecordProps,
+        secondRecord: PaymentRecordProps
+      ) => {
         return sortText(firstRecord, secondRecord, 'date');
       }
     },
@@ -132,7 +136,10 @@ const Table = ({
           </s.UserInfo>
         </s.UserInfoWrapper>
       ),
-      sorter: (firstRecord: PaymentProps, secondRecord: PaymentProps) => {
+      sorter: (
+        firstRecord: PaymentRecordProps,
+        secondRecord: PaymentRecordProps
+      ) => {
         return sortNumber(firstRecord, secondRecord);
       }
     },
@@ -150,14 +157,17 @@ const Table = ({
         { text: 'Pago', value: true },
         { text: 'Pendente', value: false }
       ],
-      onFilter: (value: string | number | boolean, record: PaymentProps) => {
+      onFilter: (
+        value: string | number | boolean,
+        record: PaymentRecordProps
+      ) => {
         return record.isPayed === value;
       }
     },
     {
       title: 'Ações',
       key: 'action',
-      render: (record: PaymentProps) => {
+      render: (record: PaymentRecordProps) => {
         return (
           <AntdSpace size="middle">
             <s.PencilIconWrapper
@@ -185,7 +195,7 @@ const Table = ({
           position: ['bottomRight'],
           current: currentPage,
           pageSize: pageSize,
-          total: 200,
+          total: total,
           onChange: (currentPage, pageSize) => {
             handlePageChange(currentPage, pageSize);
           }
