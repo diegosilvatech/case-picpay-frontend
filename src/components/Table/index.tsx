@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Table as AntdTable, Tag as AntdTag, Space as AntdSpace } from 'antd';
 
 import { formatDate, getHourFromDate } from 'core/helpers/date';
@@ -40,6 +41,9 @@ const sortNumber = (
 };
 
 const Table = ({ data }: TableProps) => {
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [pageSize, setPageSize] = useState<number>(10);
+
   const columns = [
     {
       title: '',
@@ -176,7 +180,14 @@ const Table = ({ data }: TableProps) => {
       <AntdTable
         columns={columns}
         dataSource={data}
-        pagination={{ position: ['bottomRight'] }}
+        pagination={{
+          position: ['bottomRight'],
+          current: currentPage,
+          pageSize: pageSize,
+          onChange: (currentPage, pageSize) => {
+            setCurrentPage(currentPage), setPageSize(pageSize);
+          }
+        }}
       />
     </s.Wrapper>
   );
