@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react';
 
-import { AuthContext } from 'core/contexts';
+import { AuthContext } from 'contexts';
 
 import { Container, FormLogin, Logo } from 'components';
 

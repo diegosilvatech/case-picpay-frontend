@@ -1,6 +1,6 @@
 import { useContext, useState, useEffect } from 'react';
 
-import { AuthContext } from 'core/contexts';
+import { AuthContext } from 'contexts';
 
 import { Container, Menu, Text, Button, Table } from 'components';
 import { mockedTableData } from 'components/Table/mock';

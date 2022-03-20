@@ -9,7 +9,7 @@ import {
 import LoginPage from 'pages/LoginPage';
 import PaymentsPage from 'pages/PaymentsPage';
 
-import { AuthProvider, AuthContext } from 'core/contexts';
+import { AuthProvider, AuthContext } from 'contexts';
 
 type PrivateRouteProps = {
   children: JSX.Element;
