@@ -1,9 +1,10 @@
 import { Table as AntdTable, Tag as AntdTag, Space as AntdSpace } from 'antd';
 
-import { Text } from 'components';
-import { theme } from 'styles';
 import { formatDate, getHourFromDate } from 'core/helpers/date';
 import { formatCurrency } from 'core/helpers/currency';
+
+import { Text } from 'components';
+import { theme } from 'styles';
 
 import { PaymentDataProps, PaymentListDataProps } from './mock';
 import * as s from './styles';
@@ -13,6 +14,21 @@ export type TableProps = {
 };
 
 const Table = ({ data }: TableProps) => {
+  const sortText = (
+    firstRecord: PaymentDataProps,
+    secondRecord: PaymentDataProps,
+    parameter: 'name' | 'title' | 'date'
+  ) => {
+    return firstRecord[parameter].localeCompare(secondRecord[parameter]);
+  };
+
+  const sortNumber = (
+    firstRecord: PaymentDataProps,
+    secondRecord: PaymentDataProps
+  ) => {
+    return firstRecord.value - secondRecord.value;
+  };
+
   const columns = [
     {
       title: '',
@@ -43,7 +59,13 @@ const Table = ({ data }: TableProps) => {
             </Text>
           </s.UserInfo>
         </s.UserInfoWrapper>
-      )
+      ),
+      sorter: (
+        firstRecord: PaymentDataProps,
+        secondRecord: PaymentDataProps
+      ) => {
+        return sortText(firstRecord, secondRecord, 'name');
+      }
     },
     {
       title: 'Título',
@@ -57,7 +79,13 @@ const Table = ({ data }: TableProps) => {
             </Text>
           </s.UserInfo>
         </s.UserInfoWrapper>
-      )
+      ),
+      sorter: (
+        firstRecord: PaymentDataProps,
+        secondRecord: PaymentDataProps
+      ) => {
+        return sortText(firstRecord, secondRecord, 'title');
+      }
     },
     {
       title: 'Data',
@@ -76,7 +104,13 @@ const Table = ({ data }: TableProps) => {
             </Text>
           </s.UserInfo>
         </s.UserInfoWrapper>
-      )
+      ),
+      sorter: (
+        firstRecord: PaymentDataProps,
+        secondRecord: PaymentDataProps
+      ) => {
+        return sortText(firstRecord, secondRecord, 'date');
+      }
     },
     {
       title: 'Valor',
@@ -90,7 +124,13 @@ const Table = ({ data }: TableProps) => {
             </Text>
           </s.UserInfo>
         </s.UserInfoWrapper>
-      )
+      ),
+      sorter: (
+        firstRecord: PaymentDataProps,
+        secondRecord: PaymentDataProps
+      ) => {
+        return sortNumber(firstRecord, secondRecord);
+      }
     },
     {
       title: 'Situação',
@@ -101,6 +141,16 @@ const Table = ({ data }: TableProps) => {
           return <AntdTag color={theme.colors.primary}>PAGO</AntdTag>;
         }
         return <AntdTag color={theme.colors.black}>PENDENTE</AntdTag>;
+      },
+      filters: [
+        { text: 'Pago', value: true },
+        { text: 'Pendente', value: false }
+      ],
+      onFilter: (
+        value: string | number | boolean,
+        record: PaymentDataProps
+      ) => {
+        return record.isPayed === value;
       }
     },
     {
@@ -119,7 +169,11 @@ const Table = ({ data }: TableProps) => {
 
   return (
     <s.Wrapper aria-label="Table component">
-      <AntdTable columns={columns} dataSource={data} />
+      <AntdTable
+        columns={columns}
+        dataSource={data}
+        pagination={{ position: ['topRight', 'bottomRight'] }}
+      />
     </s.Wrapper>
   );
 };
