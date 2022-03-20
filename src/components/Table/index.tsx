@@ -10,7 +10,7 @@ import { theme } from 'styles';
 
 import * as s from './styles';
 
-export type TableItemProps = {
+export type PaymentProps = {
   id: number;
   name: string;
   username: string;
@@ -22,21 +22,18 @@ export type TableItemProps = {
 };
 
 export type TableProps = {
-  data: TableItemProps[];
+  data: PaymentProps[];
 };
 
 const sortText = (
-  firstRecord: TableItemProps,
-  secondRecord: TableItemProps,
+  firstRecord: PaymentProps,
+  secondRecord: PaymentProps,
   parameter: 'name' | 'title' | 'date'
 ) => {
   return firstRecord[parameter].localeCompare(secondRecord[parameter]);
 };
 
-const sortNumber = (
-  firstRecord: TableItemProps,
-  secondRecord: TableItemProps
-) => {
+const sortNumber = (firstRecord: PaymentProps, secondRecord: PaymentProps) => {
   return firstRecord.value - secondRecord.value;
 };
 
@@ -49,7 +46,7 @@ const Table = ({ data }: TableProps) => {
       title: '',
       dataIndex: 'image',
       key: 'image',
-      render: (text: string, record: TableItemProps) => (
+      render: (text: string, record: PaymentProps) => (
         <s.UserInfoWrapper>
           <s.UserImageWrapper>
             <s.UserImage src={text} alt={record.name} />
@@ -61,7 +58,7 @@ const Table = ({ data }: TableProps) => {
       title: 'Usuário',
       dataIndex: 'name',
       key: 'name',
-      render: (name: string, record: TableItemProps) => (
+      render: (name: string, record: PaymentProps) => (
         <s.UserInfoWrapper>
           <s.UserInfo>
             <Text type="span" color="black" size="small">
@@ -75,7 +72,7 @@ const Table = ({ data }: TableProps) => {
           </s.UserInfo>
         </s.UserInfoWrapper>
       ),
-      sorter: (firstRecord: TableItemProps, secondRecord: TableItemProps) => {
+      sorter: (firstRecord: PaymentProps, secondRecord: PaymentProps) => {
         return sortText(firstRecord, secondRecord, 'name');
       }
     },
@@ -92,7 +89,7 @@ const Table = ({ data }: TableProps) => {
           </s.UserInfo>
         </s.UserInfoWrapper>
       ),
-      sorter: (firstRecord: TableItemProps, secondRecord: TableItemProps) => {
+      sorter: (firstRecord: PaymentProps, secondRecord: PaymentProps) => {
         return sortText(firstRecord, secondRecord, 'title');
       }
     },
@@ -100,7 +97,7 @@ const Table = ({ data }: TableProps) => {
       title: 'Data',
       dataIndex: 'date',
       key: 'date',
-      render: (date: string, record: TableItemProps) => (
+      render: (date: string, record: PaymentProps) => (
         <s.UserInfoWrapper>
           <s.UserInfo>
             <Text type="span" color="black" size="small">
@@ -114,7 +111,7 @@ const Table = ({ data }: TableProps) => {
           </s.UserInfo>
         </s.UserInfoWrapper>
       ),
-      sorter: (firstRecord: TableItemProps, secondRecord: TableItemProps) => {
+      sorter: (firstRecord: PaymentProps, secondRecord: PaymentProps) => {
         return sortText(firstRecord, secondRecord, 'date');
       }
     },
@@ -131,7 +128,7 @@ const Table = ({ data }: TableProps) => {
           </s.UserInfo>
         </s.UserInfoWrapper>
       ),
-      sorter: (firstRecord: TableItemProps, secondRecord: TableItemProps) => {
+      sorter: (firstRecord: PaymentProps, secondRecord: PaymentProps) => {
         return sortNumber(firstRecord, secondRecord);
       }
     },
@@ -149,14 +146,14 @@ const Table = ({ data }: TableProps) => {
         { text: 'Pago', value: true },
         { text: 'Pendente', value: false }
       ],
-      onFilter: (value: string | number | boolean, record: TableItemProps) => {
+      onFilter: (value: string | number | boolean, record: PaymentProps) => {
         return record.isPayed === value;
       }
     },
     {
       title: 'Ações',
       key: 'action',
-      render: (record: TableItemProps) => {
+      render: (record: PaymentProps) => {
         return (
           <AntdSpace size="middle">
             <s.PencilIconWrapper

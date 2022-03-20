@@ -1,6 +1,6 @@
-import { TableItemProps } from '.';
+import { PaymentProps } from '.';
 
-export const mockedTableData: TableItemProps[] = [
+export const mockedTableData: PaymentProps[] = [
   {
     id: 1,
     name: 'Diego Silva',
