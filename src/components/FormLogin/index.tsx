@@ -13,9 +13,10 @@ export type DataProps = {
 export type FormLoginProps = {
   onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
   data: DataProps;
+  error?: string;
 };
 
-const FormLogin = ({ onSubmit, data }: FormLoginProps) => {
+const FormLogin = ({ onSubmit, data, error }: FormLoginProps) => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     onSubmit(event);
@@ -34,6 +35,7 @@ const FormLogin = ({ onSubmit, data }: FormLoginProps) => {
           icon={<MailIcon />}
           value={data.email}
           onChange={(event) => data.setEmail(event.target.value)}
+          error={error}
         />
       </s.FieldWrapper>
       <s.FieldWrapper>
@@ -44,6 +46,7 @@ const FormLogin = ({ onSubmit, data }: FormLoginProps) => {
           icon={<LockIcon />}
           value={data.password}
           onChange={(event) => data.setPassword(event.target.value)}
+          error={error}
         />
       </s.FieldWrapper>
       <s.ButtonWrapper>

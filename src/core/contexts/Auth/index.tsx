@@ -13,6 +13,7 @@ type AuthProviderValueProps = {
   authenticated: boolean;
   user: UserProps;
   loading: boolean;
+  errorMessage: string;
   login: (email: string, password: string) => void;
   logout: () => void;
 };
@@ -24,14 +25,17 @@ type AuthProviderProps = {
 export const AuthContext = createContext<AuthProviderValueProps>({
   authenticated: false,
   user: { id: 0, name: '', email: '' },
+  loading: false,
+  errorMessage: '',
   login: () => ({}),
-  logout: () => ({}),
-  loading: false
+  logout: () => ({})
 });
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [user, setUser] = useState<UserProps>(null);
   const [loading, setLoading] = useState<boolean>(true);
+  const [errorMessage, setErrorMessage] = useState<string>('');
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -48,7 +52,11 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     const account = response.data[0];
 
     const hasValidCredentials = (email: string, password: string) => {
-      return account.email === email && account.password === password;
+      if (account.email === email && account.password === password) {
+        return true;
+      } else {
+        setErrorMessage('credenciais inválidas');
+      }
     };
 
     const loggedUser = {
@@ -75,7 +83,8 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     user,
     login,
     logout,
-    loading
+    loading,
+    errorMessage
   };
 
   return (

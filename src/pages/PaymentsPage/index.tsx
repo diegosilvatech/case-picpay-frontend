@@ -22,7 +22,6 @@ export default function PaymentsPage() {
   };
 
   useEffect(() => {
-    console.log('PRONTO!');
     getPayments();
   }, []);
 

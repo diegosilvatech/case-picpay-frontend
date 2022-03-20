@@ -7,7 +7,7 @@ import { Container, FormLogin, Logo } from 'components';
 import * as s from './styles';
 
 export default function LoginPage() {
-  const { login } = useContext(AuthContext);
+  const { login, errorMessage } = useContext(AuthContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -31,7 +31,7 @@ export default function LoginPage() {
           <s.LogoWrapper>
             <Logo />
           </s.LogoWrapper>
-          <FormLogin onSubmit={onSubmit} data={formData} />
+          <FormLogin onSubmit={onSubmit} data={formData} error={errorMessage} />
         </s.FormWrapper>
       </Container>
     </s.Wrapper>
