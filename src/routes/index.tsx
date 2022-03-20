@@ -9,7 +9,7 @@ import {
 import LoginPage from 'pages/LoginPage';
 import PaymentsPage from 'pages/PaymentsPage';
 
-import { AuthProvider, AuthContext } from 'contexts';
+import { AuthProvider, AuthContext, PaymentsProvider } from 'contexts';
 
 type PrivateRouteProps = {
   children: JSX.Element;
@@ -38,7 +38,9 @@ export default function Routes() {
             path="/"
             element={
               <PrivateRoute>
-                <PaymentsPage />
+                <PaymentsProvider>
+                  <PaymentsPage />
+                </PaymentsProvider>
               </PrivateRoute>
             }
           />
