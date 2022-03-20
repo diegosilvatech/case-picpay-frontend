@@ -1,5 +1,7 @@
 import {
   /* PLOP_INJECT_ICON_IMPORT */
+  BinIcon as bin,
+  PencilIcon as pencil,
   LogoutIcon as logout,
   LockIcon as lock,
   MailIcon as mail,
@@ -11,6 +13,8 @@ import { ColorStyleProps } from 'core/types/globals';
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const icons: any = {
   /* PLOP_INJECT_ICON_OBJECT */
+  bin,
+  pencil,
   logout,
   lock,
   mail,
@@ -19,7 +23,7 @@ export const icons: any = {
 
 export type IconNameTypes =
   /* PLOP_INJECT_ICON_TYPES */
-  'logout' | 'lock' | 'mail' | 'arrowDown';
+  'bin' | 'pencil' | 'logout' | 'lock' | 'mail' | 'arrowDown';
 export type IconProps = { name: IconNameTypes; color: ColorStyleProps };
 const Icon = ({ name, color }: IconProps) => {
   const Element = icons[name];

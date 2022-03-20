@@ -1,0 +1,22 @@
+import IconBase, { IconBaseProps } from 'components/IconBase';
+
+export type IconType = Pick<IconBaseProps, 'color'>;
+
+export const PencilIcon = ({ color }: IconType) => (
+  <IconBase color={color}>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      height="24"
+      width="24"
+      focusable="false"
+      role="img"
+      fill="none"
+      stroke="currentColor"
+      data-testid="mail-icon"
+    >
+      <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"></path>
+      <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+    </svg>
+  </IconBase>
+);

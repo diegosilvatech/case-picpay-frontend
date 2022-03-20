@@ -3,7 +3,7 @@ import { Table as AntdTable, Tag as AntdTag, Space as AntdSpace } from 'antd';
 import { formatDate, getHourFromDate } from 'core/helpers/date';
 import { formatCurrency } from 'core/helpers/currency';
 
-import { Text } from 'components';
+import { Text, Button } from 'components';
 import { theme } from 'styles';
 
 import * as s from './styles';
@@ -151,11 +151,11 @@ const Table = ({ data }: TableProps) => {
     {
       title: 'Ações',
       key: 'action',
-      render: (text: string, record: TableItemProps) => {
+      render: () => {
         return (
           <AntdSpace size="middle">
-            <a>Invite {record.name}</a>
-            <a>Delete</a>
+            <Button>editar</Button>
+            <Button variant="secondary">excluir</Button>
           </AntdSpace>
         );
       }
