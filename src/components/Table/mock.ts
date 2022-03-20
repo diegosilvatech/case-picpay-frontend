@@ -1,17 +1,6 @@
-export type PaymentDataProps = {
-  id: number;
-  name: string;
-  username: string;
-  title: string;
-  value: number;
-  date: string;
-  image: string;
-  isPayed: boolean;
-};
+import { TableItemProps } from '.';
 
-export type PaymentListDataProps = PaymentDataProps[];
-
-export const mockedPaymentListData: PaymentListDataProps = [
+export const mockedTableData: TableItemProps[] = [
   {
     id: 1,
     name: 'Diego Silva',

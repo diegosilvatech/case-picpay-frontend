@@ -2,7 +2,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 
 import Table, { TableProps } from '.';
 
-import { mockedPaymentListData } from './mock';
+import { mockedTableData } from './mock';
 
 export default {
   title: 'Organisms/Table',
@@ -11,7 +11,7 @@ export default {
     jest: ['Table.test.tsx']
   },
   args: {
-    data: mockedPaymentListData
+    data: mockedTableData
   }
 } as Meta;
 
