@@ -3,7 +3,8 @@ import { Table as AntdTable, Tag as AntdTag, Space as AntdSpace } from 'antd';
 import { formatDate, getHourFromDate } from 'core/helpers/date';
 import { formatCurrency } from 'core/helpers/currency';
 
-import { Text, Button } from 'components';
+import { Text } from 'components';
+import { PencilIcon, BinIcon } from 'assets/icons';
 import { theme } from 'styles';
 
 import * as s from './styles';
@@ -56,11 +57,11 @@ const Table = ({ data }: TableProps) => {
       title: 'Usuário',
       dataIndex: 'name',
       key: 'name',
-      render: (text: string, record: TableItemProps) => (
+      render: (name: string, record: TableItemProps) => (
         <s.UserInfoWrapper>
           <s.UserInfo>
             <Text type="span" color="black" size="small">
-              {text}
+              {name}
             </Text>
           </s.UserInfo>
           <s.UserInfo>
@@ -78,11 +79,11 @@ const Table = ({ data }: TableProps) => {
       title: 'Título',
       dataIndex: 'title',
       key: 'title',
-      render: (text: string) => (
+      render: (title: string) => (
         <s.UserInfoWrapper>
           <s.UserInfo>
             <Text type="span" color="black" size="small">
-              {text}
+              {title}
             </Text>
           </s.UserInfo>
         </s.UserInfoWrapper>
@@ -95,11 +96,11 @@ const Table = ({ data }: TableProps) => {
       title: 'Data',
       dataIndex: 'date',
       key: 'date',
-      render: (text: string, record: TableItemProps) => (
+      render: (date: string, record: TableItemProps) => (
         <s.UserInfoWrapper>
           <s.UserInfo>
             <Text type="span" color="black" size="small">
-              {formatDate(text)}
+              {formatDate(date)}
             </Text>
           </s.UserInfo>
           <s.UserInfo>
@@ -117,11 +118,11 @@ const Table = ({ data }: TableProps) => {
       title: 'Valor',
       key: 'value',
       dataIndex: 'value',
-      render: (text: number) => (
+      render: (value: number) => (
         <s.UserInfoWrapper>
           <s.UserInfo>
             <Text type="span" color="black" size="small" weight="semiBold">
-              {formatCurrency(text)}
+              {formatCurrency(value)}
             </Text>
           </s.UserInfo>
         </s.UserInfoWrapper>
@@ -151,11 +152,19 @@ const Table = ({ data }: TableProps) => {
     {
       title: 'Ações',
       key: 'action',
-      render: () => {
+      render: (record: TableItemProps) => {
         return (
           <AntdSpace size="middle">
-            <Button>editar</Button>
-            <Button variant="secondary">excluir</Button>
+            <s.PencilIconWrapper
+              onClick={() => console.log('call EDIT', record.name)}
+            >
+              <PencilIcon />
+            </s.PencilIconWrapper>
+            <s.BinIconWrapper
+              onClick={() => console.log('call DELETE', record.name)}
+            >
+              <BinIcon />
+            </s.BinIconWrapper>
           </AntdSpace>
         );
       }

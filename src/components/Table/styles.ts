@@ -44,3 +44,29 @@ export const UserInfo = styled.div`
 export const UserUsernameWrapper = styled.div`
   ${() => css``}
 `;
+
+export const PencilIconWrapper = styled.div`
+  ${({ theme }) => css`
+    cursor: pointer;
+
+    &:hover {
+      svg {
+        color: ${theme.colors.primary};
+        transition: color ${theme.transition.fast};
+      }
+    }
+  `}
+`;
+
+export const BinIconWrapper = styled.div`
+  ${({ theme }) => css`
+    cursor: pointer;
+
+    &:hover {
+      svg {
+        color: ${theme.colors.error};
+        transition: color ${theme.transition.fast};
+      }
+    }
+  `}
+`;
