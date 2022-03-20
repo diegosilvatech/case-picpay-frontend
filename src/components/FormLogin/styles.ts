@@ -7,10 +7,14 @@ export const Wrapper = styled.form`
 
 export const FieldWrapper = styled.div`
   ${({ theme }) => css`
-    & + div {
-      margin-top: ${theme.spacings.small};
+    & > div {
+      margin-top: ${theme.spacings.medium};
     }
   `}
 `;
 
-export const ButtonWrapper = styled.div``;
+export const ButtonWrapper = styled.div`
+  ${({ theme }) => css`
+    margin-top: ${theme.spacings.large};
+  `}
+`;

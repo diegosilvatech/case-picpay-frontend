@@ -81,7 +81,7 @@ export const Input = styled.input<IconPositionProps>`
 
 export const LabelWrapper = styled.div`
   ${({ theme }) => css`
-    margin-bottom: ${theme.spacings.extraSmall};
+    /* margin-bottom: ${theme.spacings.extraSmall}; */
   `}
 `;
 
