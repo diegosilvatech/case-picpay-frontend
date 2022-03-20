@@ -10,3 +10,5 @@ export const HeaderWrapper = styled.div`
     align-items: center;
   `}
 `;
+
+export const TableWrapper = styled.div``;

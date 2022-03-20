@@ -2,7 +2,8 @@ import { useContext } from 'react';
 
 import { AuthContext } from 'core/contexts';
 
-import { Container, Menu, Text, Button } from 'components';
+import { Container, Menu, Text, Button, Table } from 'components';
+import { mockedTableData } from 'components/Table/mock';
 
 import * as s from './styles';
 
@@ -19,6 +20,10 @@ export default function PaymentsPage() {
           </Text>
           <Button>Adicionar pagamento</Button>
         </s.HeaderWrapper>
+
+        <s.TableWrapper>
+          <Table data={mockedTableData} />
+        </s.TableWrapper>
       </Container>
     </s.Wrapper>
   );
