@@ -15,7 +15,7 @@ export type PaymentProps = {
 
 export type PaymentsProviderValueProps = {
   payments: PaymentProps[];
-  getPayments: () => void;
+  getPayments: (recordsAmount?: number) => void;
 };
 
 export type PaymentProviderProps = {
@@ -30,8 +30,8 @@ export const PaymentsContext = createContext<PaymentsProviderValueProps>({
 export const PaymentsProvider = ({ children }: PaymentProviderProps) => {
   const [payments, setPayments] = useState([]);
 
-  const getPayments = async () => {
-    const response = await getPaymentList();
+  const getPayments = async (recordsAmount?: number) => {
+    const response = await getPaymentList(recordsAmount);
     setPayments(response.data);
   };
 

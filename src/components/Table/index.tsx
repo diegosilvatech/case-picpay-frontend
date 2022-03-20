@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Table as AntdTable, Tag as AntdTag, Space as AntdSpace } from 'antd';
 
 import { formatDate, getHourFromDate } from 'core/helpers/date';
@@ -23,6 +22,9 @@ export type PaymentProps = {
 
 export type TableProps = {
   data: PaymentProps[];
+  currentPage: number;
+  pageSize: number;
+  handlePageChange: (currentPage: number, pageSize: number) => void;
 };
 
 const sortText = (
@@ -37,10 +39,12 @@ const sortNumber = (firstRecord: PaymentProps, secondRecord: PaymentProps) => {
   return firstRecord.value - secondRecord.value;
 };
 
-const Table = ({ data }: TableProps) => {
-  const [currentPage, setCurrentPage] = useState<number>(1);
-  const [pageSize, setPageSize] = useState<number>(10);
-
+const Table = ({
+  data,
+  currentPage,
+  pageSize,
+  handlePageChange
+}: TableProps) => {
   const columns = [
     {
       title: '',
@@ -181,8 +185,9 @@ const Table = ({ data }: TableProps) => {
           position: ['bottomRight'],
           current: currentPage,
           pageSize: pageSize,
+          total: 200,
           onChange: (currentPage, pageSize) => {
-            setCurrentPage(currentPage), setPageSize(pageSize);
+            handlePageChange(currentPage, pageSize);
           }
         }}
       />

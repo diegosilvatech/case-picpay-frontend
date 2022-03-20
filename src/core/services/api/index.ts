@@ -8,8 +8,10 @@ const getCredentials = async () => {
   return api.get('/account');
 };
 
-const getPaymentList = async () => {
-  return api.get('/tasks');
+const defaultReacordsAmount = 10;
+
+const getPaymentList = async (recordsAmount = defaultReacordsAmount) => {
+  return api.get(`/tasks?_limit=${recordsAmount}`);
 };
 
 export { api, getCredentials, getPaymentList };
