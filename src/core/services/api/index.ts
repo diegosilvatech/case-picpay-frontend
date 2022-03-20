@@ -8,4 +8,8 @@ const getCredentials = async () => {
   return api.get('/account');
 };
 
-export { api, getCredentials };
+const getPaymentList = async () => {
+  return api.get('/tasks');
+};
+
+export { api, getCredentials, getPaymentList };
