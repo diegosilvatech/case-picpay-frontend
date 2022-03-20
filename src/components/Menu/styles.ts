@@ -4,7 +4,7 @@ export const Wrapper = styled.menu`
   ${({ theme }) => css`
     background-color: ${theme.colors.primary};
     display: flex;
-    padding: ${theme.spacings.large} 0;
+    padding: ${theme.spacings.medium} 0;
   `}
 `;
 

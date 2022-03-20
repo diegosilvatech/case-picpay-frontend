@@ -40,6 +40,7 @@ const Table = ({
   total,
   handlePageChange
 }: TableProps) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const columns = [
     {
       title: '',

@@ -1,7 +1,11 @@
 import styled, { css } from 'styled-components';
 
 export const Wrapper = styled.div`
-  ${() => css``}
+  ${({ theme }) => css`
+    .ant-table-tbody > tr > td {
+      padding: ${theme.spacings.extraSmall};
+    }
+  `}
 `;
 
 export const UserInfoWrapper = styled.div`
