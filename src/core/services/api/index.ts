@@ -10,7 +10,6 @@ const getCredentials = async () => {
 };
 
 const getPaymentList = async () => {
-  console.log('CHAMOU API');
   return api.get(`/tasks`);
 };
 

@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { Input, Button } from 'components';
+import { InputText, Button } from 'components';
 
 import { MailIcon } from 'assets/icons';
 
 import * as s from './styles';
 
-export type FormDataProps = {
+export type AddFormDataProps = {
   name: string;
   value: number;
   date: string;
@@ -13,13 +13,13 @@ export type FormDataProps = {
   isPayed: boolean;
 };
 
-export type FormAddProps = {
-  onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
+export type AddFormProps = {
   onCancel: () => void;
+  onSubmit: (formData: AddFormDataProps) => void;
 };
 
-const FormAdd = ({ onSubmit, onCancel }: FormAddProps) => {
-  const [formData, setFormData] = useState<FormDataProps>({
+const AddForm = ({ onSubmit, onCancel }: AddFormProps) => {
+  const [formData, setFormData] = useState<AddFormDataProps>({
     name: '',
     value: 0,
     date: '',
@@ -29,19 +29,18 @@ const FormAdd = ({ onSubmit, onCancel }: FormAddProps) => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    onSubmit(event);
-    console.log({ formData });
+    onSubmit(formData);
   };
 
   return (
     <s.Wrapper
-      aria-label="FormAdd component"
+      aria-label="AddForm component"
       onSubmit={(event) => handleSubmit(event)}
     >
       <s.FormRowsWrapper>
         <s.FormColumn>
           <s.FieldWrapper>
-            <Input
+            <InputText
               label="usuário"
               name="user"
               placeholder="usuário"
@@ -55,7 +54,7 @@ const FormAdd = ({ onSubmit, onCancel }: FormAddProps) => {
             />
           </s.FieldWrapper>
           <s.FieldWrapper>
-            <Input
+            <InputText
               label="Data"
               name="date"
               placeholder="data"
@@ -70,7 +69,7 @@ const FormAdd = ({ onSubmit, onCancel }: FormAddProps) => {
 
         <s.FormColumn>
           <s.FieldWrapper>
-            <Input
+            <InputText
               label="valor"
               name="value"
               type="number"
@@ -84,7 +83,7 @@ const FormAdd = ({ onSubmit, onCancel }: FormAddProps) => {
             />
           </s.FieldWrapper>
           <s.FieldWrapper>
-            <Input
+            <InputText
               label="título"
               name="title"
               placeholder="título"
@@ -111,4 +110,4 @@ const FormAdd = ({ onSubmit, onCancel }: FormAddProps) => {
   );
 };
 
-export default FormAdd;
+export default AddForm;

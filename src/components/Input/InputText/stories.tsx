@@ -2,11 +2,11 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 
 import { MailIcon } from 'assets/icons';
 
-import Input, { InputProps } from '.';
+import InputText, { InputTextProps } from '.';
 
 export default {
-  title: 'Molecules/Form/Input',
-  component: Input,
+  title: 'Molecules/Form/InputText',
+  component: InputText,
   decorators: [
     (Story) => (
       <div style={{ maxWidth: '40rem', padding: 15 }}>
@@ -30,9 +30,13 @@ export default {
   }
 } as Meta;
 
-export const InputDefault: Story<InputProps> = (args) => <Input {...args} />;
+export const InputDefault: Story<InputTextProps> = (args) => (
+  <InputText {...args} />
+);
 
-export const InputWithError: Story<InputProps> = (args) => <Input {...args} />;
+export const InputWithError: Story<InputTextProps> = (args) => (
+  <InputText {...args} />
+);
 
 InputWithError.args = {
   error: '...something is wrong'

@@ -2,7 +2,7 @@ import { useState, useContext } from 'react';
 
 import { AuthContext } from 'contexts';
 
-import { Container, FormLogin, Logo } from 'components';
+import { Container, LoginForm, Logo } from 'components';
 
 import * as s from './styles';
 
@@ -31,7 +31,7 @@ export default function LoginPage() {
           <s.LogoWrapper>
             <Logo />
           </s.LogoWrapper>
-          <FormLogin onSubmit={onSubmit} data={formData} error={errorMessage} />
+          <LoginForm onSubmit={onSubmit} data={formData} error={errorMessage} />
         </s.FormWrapper>
       </Container>
     </s.Wrapper>

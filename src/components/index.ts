@@ -1,13 +1,13 @@
 /* PLOP_INJECT_IMPORT */
-import FormAdd from './FormAdd';
-import ModalAdd from './ModalAdd';
-import Modal from './Modal';
+import AddForm from './Form/AddForm';
+import AddModal from './Modal/AddModal';
+import BaseModal from './Modal/BaseModal';
 import Table from './Table';
 import Logo from './Logo';
 import Menu from './Menu';
-import FormLogin from './FormLogin';
-import InputPassword from './InputPassword';
-import Input from './Input';
+import LoginForm from './Form/LoginForm';
+import InputPassword from './Input/InputPassword';
+import InputText from './Input/InputText';
 import MediaMatch from './MediaMatch';
 import Text from './Text';
 import Container from './Container';
@@ -17,15 +17,15 @@ import Icon from './Icon';
 
 export {
   /* PLOP_INJECT_EXPORT */
-  FormAdd,
-  ModalAdd,
-  Modal,
+  AddForm,
+  AddModal,
+  BaseModal,
   Table,
   Logo,
   Menu,
-  FormLogin,
+  LoginForm,
   InputPassword,
-  Input,
+  InputText,
   MediaMatch,
   Text,
   Container,

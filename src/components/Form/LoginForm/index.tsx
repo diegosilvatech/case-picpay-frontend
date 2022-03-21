@@ -1,4 +1,4 @@
-import { Input, InputPassword, Button } from 'components';
+import { InputText, InputPassword, Button } from 'components';
 import { MailIcon, LockIcon } from 'assets/icons';
 
 import * as s from './styles';
@@ -10,24 +10,24 @@ export type DataProps = {
   setPassword: (password: string) => void;
 };
 
-export type FormLoginProps = {
+export type LoginFormProps = {
   onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
   data: DataProps;
   error?: string;
 };
 
-const FormLogin = ({ onSubmit, data, error }: FormLoginProps) => {
+const LoginForm = ({ onSubmit, data, error }: LoginFormProps) => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     onSubmit(event);
   };
   return (
     <s.Wrapper
-      aria-label="FormLogin component"
+      aria-label="LoginForm component"
       onSubmit={(event) => handleSubmit(event)}
     >
       <s.FieldWrapper>
-        <Input
+        <InputText
           label="e-mail"
           name="email"
           type="email"
@@ -58,4 +58,4 @@ const FormLogin = ({ onSubmit, data, error }: FormLoginProps) => {
   );
 };
 
-export default FormLogin;
+export default LoginForm;

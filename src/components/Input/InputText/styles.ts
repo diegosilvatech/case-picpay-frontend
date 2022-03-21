@@ -1,16 +1,16 @@
 import styled, { css, DefaultTheme } from 'styled-components';
 
-import { InputProps } from '.';
+import { InputTextProps } from '.';
 
-type IconPositionProps = Pick<InputProps, 'iconPosition'>;
-type WrapperProps = Pick<InputProps, 'disabled'> & {
+type IconPositionProps = Pick<InputTextProps, 'iconPosition'>;
+type WrapperProps = Pick<InputTextProps, 'disabled'> & {
   error?: boolean;
 };
 
 const textFieldModifiers = {
   disabled: (theme: DefaultTheme) => css`
     ${Label},
-    ${Input},
+    ${InputText},
     ${InputWrapper} {
       cursor: not-allowed;
       color: ${theme.colors.gray};
@@ -33,7 +33,7 @@ const textFieldModifiers = {
         box-shadow: 0 0 0.25rem ${theme.colors.error};
       }
     }
-    ${Input},
+    ${InputText},
     ${Label} {
       color: ${theme.colors.error};
     }
@@ -66,7 +66,7 @@ export const InputWrapper = styled.div`
   `}
 `;
 
-export const Input = styled.input<IconPositionProps>`
+export const InputText = styled.input<IconPositionProps>`
   ${({ theme, iconPosition }) => css`
     color: ${theme.colors.black};
     font-family: ${theme.font.family};
@@ -77,10 +77,6 @@ export const Input = styled.input<IconPositionProps>`
     outline: none;
     width: 100%;
     max-height: 6rem;
-
-    &[type="date"] {
-      /* border: 2px solid red; */
-    }
   `}
 `;
 

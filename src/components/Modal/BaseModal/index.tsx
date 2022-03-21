@@ -3,16 +3,16 @@ import { Text } from 'components';
 
 import * as s from './styles';
 
-export type ModalProps = {
+export type BaseModalProps = {
   visible: boolean;
   title: string;
   children: React.ReactNode;
   onCancel: () => void;
 };
 
-const Modal = ({ visible, title, children, onCancel }: ModalProps) => {
+const BaseModal = ({ visible, title, children, onCancel }: BaseModalProps) => {
   return (
-    <s.Wrapper aria-label="Modal component">
+    <s.Wrapper aria-label="BaseModal component">
       <AntdModal visible={visible} onCancel={onCancel} centered footer={null}>
         <s.TitleWrapper>
           <Text type="h2" weight="semiBold" size="extraLarge">
@@ -25,4 +25,4 @@ const Modal = ({ visible, title, children, onCancel }: ModalProps) => {
   );
 };
 
-export default Modal;
+export default BaseModal;
