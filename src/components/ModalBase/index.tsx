@@ -7,13 +7,13 @@ export type ModalBaseProps = {
   visible: boolean;
   title: string;
   children: React.ReactNode;
-  onClose: () => void;
+  onCancel: () => void;
 };
 
-const ModalBase = ({ visible, title, children, onClose }: ModalBaseProps) => {
+const ModalBase = ({ visible, title, children, onCancel }: ModalBaseProps) => {
   return (
     <s.Wrapper aria-label="ModalBase component">
-      <AntdModal visible={visible} onCancel={onClose} centered>
+      <AntdModal visible={visible} onCancel={onCancel} centered footer={null}>
         <s.TitleWrapper>
           <Text type="h3" weight="semiBold" size="large">
             {title}

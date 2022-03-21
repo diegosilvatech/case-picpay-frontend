@@ -76,14 +76,15 @@ export const Input = styled.input<IconPositionProps>`
     border: none;
     outline: none;
     width: 100%;
+    max-height: 6rem;
+
+    &[type="date"] {
+      /* border: 2px solid red; */
+    }
   `}
 `;
 
-export const LabelWrapper = styled.div`
-  ${({ theme }) => css`
-    /* margin-bottom: ${theme.spacings.extraSmall}; */
-  `}
-`;
+export const LabelWrapper = styled.div``;
 
 export const Label = styled.label`
   ${({ theme }) => css`

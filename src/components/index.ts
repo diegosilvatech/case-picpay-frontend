@@ -1,4 +1,5 @@
 /* PLOP_INJECT_IMPORT */
+import FormAdd from './FormAdd';
 import ModalAdd from './ModalAdd';
 import ModalBase from './ModalBase';
 import Table from './Table';
@@ -16,6 +17,7 @@ import Icon from './Icon';
 
 export {
   /* PLOP_INJECT_EXPORT */
+  FormAdd,
   ModalAdd,
   ModalBase,
   Table,

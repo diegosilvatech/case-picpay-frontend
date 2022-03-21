@@ -24,13 +24,14 @@ export default function PaymentsPage() {
   }, []);
 
   // console.log('paymentRecords', paymentRecords);
-  // console.log('amount', paymentRecords.length);
+  console.log('amount', paymentRecords.length);
 
   return (
     <PaymentsProvider>
       <ModalAdd
         visible={showEditModal}
-        onClose={() => setShowEditModal(false)}
+        onCancel={() => setShowEditModal(false)}
+        onSubmit={() => console.log('submit MODAL ADD')}
       />
       <s.Wrapper>
         <Menu user={user} onLogout={logout} />

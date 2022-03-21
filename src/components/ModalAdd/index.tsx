@@ -1,13 +1,14 @@
-import { ModalBase } from 'components';
+import { ModalBase, FormAdd } from 'components';
 
 export type ModalAddProps = {
   visible: boolean;
-  onClose: () => void;
+  onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
+  onCancel: () => void;
 };
 
-const ModalAdd = ({ visible, onClose }: ModalAddProps) => (
-  <ModalBase title="Adicionar pagamento" visible={visible} onClose={onClose}>
-    <h1>add</h1>
+const ModalAdd = ({ visible, onCancel, onSubmit }: ModalAddProps) => (
+  <ModalBase title="Adicionar pagamento" visible={visible} onCancel={onCancel}>
+    <FormAdd onSubmit={onSubmit} onCancel={onCancel} />
   </ModalBase>
 );
 
