@@ -5,7 +5,9 @@ export const Wrapper = styled.div`
 `;
 
 export const TitleWrapper = styled.div`
-  ${() => css``}
+  ${() => css`
+    text-align: center;
+  `}
 `;
 
 export const ContentWrapper = styled.div`

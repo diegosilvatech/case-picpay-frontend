@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { InputText, Button } from 'components';
+import { Input, Button } from 'components';
 
 import { MailIcon } from 'assets/icons';
 
@@ -41,7 +41,7 @@ const FormAdd = ({ onSubmit, onCancel }: FormAddProps) => {
       <s.FormRowsWrapper>
         <s.FormColumn>
           <s.FieldWrapper>
-            <InputText
+            <Input
               label="usuário"
               name="user"
               placeholder="usuário"
@@ -55,7 +55,7 @@ const FormAdd = ({ onSubmit, onCancel }: FormAddProps) => {
             />
           </s.FieldWrapper>
           <s.FieldWrapper>
-            <InputText
+            <Input
               label="Data"
               name="date"
               placeholder="data"
@@ -70,7 +70,7 @@ const FormAdd = ({ onSubmit, onCancel }: FormAddProps) => {
 
         <s.FormColumn>
           <s.FieldWrapper>
-            <InputText
+            <Input
               label="valor"
               name="value"
               type="number"
@@ -84,7 +84,7 @@ const FormAdd = ({ onSubmit, onCancel }: FormAddProps) => {
             />
           </s.FieldWrapper>
           <s.FieldWrapper>
-            <InputText
+            <Input
               label="título"
               name="title"
               placeholder="título"

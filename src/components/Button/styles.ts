@@ -26,7 +26,7 @@ export const ButtonWrapper = styled.button<ButtonProps>`
   ${({ theme, variant, fullWidth }) => css`
     border: none;
     border-radius: ${theme.border.radius.small};
-    padding: ${theme.spacings.medium} ${theme.spacings.medium};
+    padding: ${theme.spacings.medium};
     transition: background-color ${theme.transition.fast};
     font-family: ${theme.font.family};
     font-weight: ${theme.font.weights.semiBold};

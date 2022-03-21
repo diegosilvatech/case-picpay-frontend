@@ -15,7 +15,7 @@ export default {
     )
   ],
   parameters: {
-    jest: ['InputText.test.tsx']
+    jest: ['Input.test.tsx']
   },
   args: {
     label: 'password',

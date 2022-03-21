@@ -2,7 +2,7 @@ import { InputHTMLAttributes } from 'react';
 
 import * as s from './styles';
 
-export type InputTextProps = {
+export type InputProps = {
   label?: string;
   icon?: React.ReactNode;
   iconPosition?: 'left' | 'right';
@@ -11,7 +11,7 @@ export type InputTextProps = {
   value?: string;
 } & InputHTMLAttributes<HTMLInputElement>;
 
-const InputText = ({
+const Input = ({
   disabled = false,
   error,
   icon,
@@ -21,13 +21,9 @@ const InputText = ({
   value,
   onChange,
   ...props
-}: InputTextProps) => {
+}: InputProps) => {
   return (
-    <s.Wrapper
-      aria-label="InputText component"
-      error={!!error}
-      disabled={disabled}
-    >
+    <s.Wrapper aria-label="Input component" error={!!error} disabled={disabled}>
       {!!label && (
         <s.LabelWrapper>
           <s.Label htmlFor={name}>{label}</s.Label>
@@ -53,4 +49,4 @@ const InputText = ({
   );
 };
 
-export default InputText;
+export default Input;

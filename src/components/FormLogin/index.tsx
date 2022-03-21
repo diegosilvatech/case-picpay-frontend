@@ -1,4 +1,4 @@
-import { InputText, InputPassword, Button } from 'components';
+import { Input, InputPassword, Button } from 'components';
 import { MailIcon, LockIcon } from 'assets/icons';
 
 import * as s from './styles';
@@ -27,7 +27,7 @@ const FormLogin = ({ onSubmit, data, error }: FormLoginProps) => {
       onSubmit={(event) => handleSubmit(event)}
     >
       <s.FieldWrapper>
-        <InputText
+        <Input
           label="e-mail"
           name="email"
           type="email"

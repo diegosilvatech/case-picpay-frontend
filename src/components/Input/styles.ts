@@ -1,9 +1,9 @@
 import styled, { css, DefaultTheme } from 'styled-components';
 
-import { InputTextProps } from '.';
+import { InputProps } from '.';
 
-type IconPositionProps = Pick<InputTextProps, 'iconPosition'>;
-type WrapperProps = Pick<InputTextProps, 'disabled'> & {
+type IconPositionProps = Pick<InputProps, 'iconPosition'>;
+type WrapperProps = Pick<InputProps, 'disabled'> & {
   error?: boolean;
 };
 

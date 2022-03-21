@@ -1,13 +1,13 @@
 /* PLOP_INJECT_IMPORT */
 import FormAdd from './FormAdd';
 import ModalAdd from './ModalAdd';
-import ModalBase from './ModalBase';
+import Modal from './Modal';
 import Table from './Table';
 import Logo from './Logo';
 import Menu from './Menu';
 import FormLogin from './FormLogin';
 import InputPassword from './InputPassword';
-import InputText from './InputText';
+import Input from './Input';
 import MediaMatch from './MediaMatch';
 import Text from './Text';
 import Container from './Container';
@@ -19,13 +19,13 @@ export {
   /* PLOP_INJECT_EXPORT */
   FormAdd,
   ModalAdd,
-  ModalBase,
+  Modal,
   Table,
   Logo,
   Menu,
   FormLogin,
   InputPassword,
-  InputText,
+  Input,
   MediaMatch,
   Text,
   Container,

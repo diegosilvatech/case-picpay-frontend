@@ -3,20 +3,20 @@ import { Text } from 'components';
 
 import * as s from './styles';
 
-export type ModalBaseProps = {
+export type ModalProps = {
   visible: boolean;
   title: string;
   children: React.ReactNode;
   onCancel: () => void;
 };
 
-const ModalBase = ({ visible, title, children, onCancel }: ModalBaseProps) => {
+const Modal = ({ visible, title, children, onCancel }: ModalProps) => {
   return (
-    <s.Wrapper aria-label="ModalBase component">
+    <s.Wrapper aria-label="Modal component">
       <AntdModal visible={visible} onCancel={onCancel} centered footer={null}>
         <s.TitleWrapper>
-          <Text type="h3" weight="semiBold" size="large">
-            {title}
+          <Text type="h2" weight="semiBold" size="extraLarge">
+            {title.toUpperCase()}
           </Text>
         </s.TitleWrapper>
         <s.ContentWrapper>{children}</s.ContentWrapper>
@@ -25,4 +25,4 @@ const ModalBase = ({ visible, title, children, onCancel }: ModalBaseProps) => {
   );
 };
 
-export default ModalBase;
+export default Modal;

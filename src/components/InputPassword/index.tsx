@@ -1,7 +1,7 @@
-import { InputText } from 'components';
-import { InputTextProps } from 'components/InputText';
+import { Input } from 'components';
+import { InputProps } from 'components/Input';
 
-export type InputPasswordProps = InputTextProps;
+export type InputPasswordProps = InputProps;
 
 const InputPassword = ({
   disabled = false,
@@ -15,7 +15,7 @@ const InputPassword = ({
   ...props
 }: InputPasswordProps) => {
   return (
-    <InputText
+    <Input
       name={name}
       onChange={onChange}
       value={value}

@@ -1,4 +1,4 @@
-import { ModalBase, FormAdd } from 'components';
+import { Modal, FormAdd } from 'components';
 
 export type ModalAddProps = {
   visible: boolean;
@@ -7,9 +7,9 @@ export type ModalAddProps = {
 };
 
 const ModalAdd = ({ visible, onCancel, onSubmit }: ModalAddProps) => (
-  <ModalBase title="Adicionar pagamento" visible={visible} onCancel={onCancel}>
+  <Modal title="Adicionar pagamento" visible={visible} onCancel={onCancel}>
     <FormAdd onSubmit={onSubmit} onCancel={onCancel} />
-  </ModalBase>
+  </Modal>
 );
 
 export default ModalAdd;
