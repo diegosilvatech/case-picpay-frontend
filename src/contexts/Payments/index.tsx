@@ -1,5 +1,5 @@
 import { createContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { AxiosResponse } from 'axios';
 
 import { getTasks, createTask } from 'core/services';
 
@@ -25,9 +25,8 @@ export const PaymentsContext = createContext<PaymentsProviderValueProps>({
 });
 
 export const PaymentsProvider = ({ children }: PaymentProviderProps) => {
-  const [paymentRecords, setPayments] = useState([]);
-
-  const navigate = useNavigate();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [paymentRecords, setPayments] = useState<any>([]);
 
   const getPayments = async () => {
     const response = await getTasks();
@@ -35,7 +34,8 @@ export const PaymentsProvider = ({ children }: PaymentProviderProps) => {
   };
 
   const addPayment = async (payment: AddPaymentProps) => {
-    return await createTask(payment).then(() => navigate('/'));
+    const response: AxiosResponse<AddPaymentProps> = await createTask(payment);
+    setPayments([...paymentRecords, response.data]);
   };
 
   const paymentsProviderValue: PaymentsProviderValueProps = {

@@ -7,10 +7,20 @@ export type AddModalProps = {
   onSubmit: (formData: AddFormDataProps) => void;
 };
 
-const AddModal = ({ visible, onCancel, onSubmit }: AddModalProps) => (
-  <BaseModal title="Adicionar pagamento" visible={visible} onCancel={onCancel}>
-    <AddForm onSubmit={onSubmit} onCancel={onCancel} />
-  </BaseModal>
-);
+const AddModal = ({ visible, onCancel, onSubmit }: AddModalProps) => {
+  const handleSubmit = (formData: AddFormDataProps) => {
+    onSubmit(formData);
+  };
+
+  return (
+    <BaseModal
+      title="Adicionar pagamento"
+      visible={visible}
+      onCancel={onCancel}
+    >
+      <AddForm onSubmit={handleSubmit} onCancel={onCancel} />
+    </BaseModal>
+  );
+};
 
 export default AddModal;

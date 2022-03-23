@@ -41,7 +41,7 @@ const Table = ({
   handlePageChange
 }: TableProps) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const columns = [
+  const columns: any = [
     {
       title: '',
       dataIndex: 'image',
@@ -122,7 +122,8 @@ const Table = ({
         secondRecord: PaymentRecordProps
       ) => {
         return sortText(firstRecord, secondRecord, 'date');
-      }
+      },
+      defaultSortOrder: 'descend'
     },
     {
       title: 'Valor',
@@ -186,6 +187,8 @@ const Table = ({
       }
     }
   ];
+
+  // console.log('DATA_TABLE', { data });
 
   return (
     <s.Wrapper aria-label="Table component">

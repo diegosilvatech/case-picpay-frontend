@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { InputText, Button } from 'components';
 
-import { getCurrentDate } from 'core/helpers/date';
+import { getCurrentDate, getCurrentTime } from 'core/helpers/date';
 
 import { MailIcon } from 'assets/icons';
 
@@ -39,7 +39,8 @@ const AddForm = ({ onSubmit, onCancel }: AddFormProps) => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    onSubmit(formData);
+    const fullDate = `${formData.date + getCurrentTime()}`;
+    onSubmit({ ...formData, date: fullDate });
     handleReset();
   };
 
@@ -60,7 +61,10 @@ const AddForm = ({ onSubmit, onCancel }: AddFormProps) => {
               iconPosition="right"
               value={formData.name}
               onChange={(event) =>
-                setFormData({ ...formData, name: event.target.value })
+                setFormData({
+                  ...formData,
+                  name: event.target.value
+                })
               }
             />
           </s.FieldWrapper>
@@ -73,7 +77,10 @@ const AddForm = ({ onSubmit, onCancel }: AddFormProps) => {
               min={today}
               value={formData.date}
               onChange={(event) =>
-                setFormData({ ...formData, date: event.target.value })
+                setFormData({
+                  ...formData,
+                  date: event.target.value + getCurrentTime()
+                })
               }
             />
           </s.FieldWrapper>

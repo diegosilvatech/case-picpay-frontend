@@ -22,13 +22,14 @@ export default function PaymentsPage() {
 
   const handleSubmitAddPayment = (addPaymentData: AddFormDataProps) => {
     addPayment(addPaymentData);
+    setShowModal(false);
+    // console.log('SUBMIT', { paymentRecords });
   };
+  console.log('DATA_TABLE_ON_PAGE', { paymentRecords });
 
   useEffect(() => {
     getPayments();
   }, []);
-
-  console.log('amount', paymentRecords.length);
 
   return (
     <PaymentsProvider>
