@@ -2,22 +2,46 @@ import { useContext, useState, useEffect } from 'react';
 
 import { AuthContext, PaymentsProvider, PaymentsContext } from 'contexts';
 
-import { Container, Menu, Text, Button, Table, AddModal } from 'components';
+import {
+  Container,
+  Menu,
+  Text,
+  Button,
+  Table,
+  AddModal,
+  DeleteModal
+} from 'components';
 import { PaymentRecordProps } from 'core/types/payments/globals';
 
 import * as s from './styles';
 
 export default function PaymentsPage() {
   const { logout, user } = useContext(AuthContext);
-  const { getPayments, paymentRecords, addPayment } =
+  const { getPayments, paymentRecords, addPayment, deletePayment } =
     useContext(PaymentsContext);
-
-  console.log({ paymentRecords });
 
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [pageSize, setPageSize] = useState<number>(5);
 
   const [showAddModal, setShowAddModal] = useState<boolean>(false);
+
+  const [showDeleteModal, setShowDeleteModal] = useState<boolean>(false);
+  const [selectedPaymentToDelete, setSelectedPaymentToDelete] =
+    useState<PaymentRecordProps>({
+      id: 0,
+      name: '',
+      username: 'diegosilvatech',
+      title: '',
+      value: 0,
+      date: '',
+      image:
+        'https://d1fdloi71mui9q.cloudfront.net/xDiFfl33T8CKfh4oT1RP_gw8aK99eof1l95P0',
+      isPayed: false
+    });
+
+  useEffect(() => {
+    getPayments();
+  }, []);
 
   const handlePageChange = (currentPage: number, pageSize: number) => {
     setCurrentPage(currentPage), setPageSize(pageSize);
@@ -28,9 +52,22 @@ export default function PaymentsPage() {
     setShowAddModal(false);
   };
 
-  useEffect(() => {
-    getPayments();
-  }, []);
+  const handleClickDeleteButton = (record: PaymentRecordProps) => {
+    setShowDeleteModal(true);
+    setSelectedPaymentToDelete(record);
+  };
+
+  const handleSubmitDeletePayment = (paymentId: number) => {
+    deletePayment(paymentId);
+    setShowDeleteModal(false);
+  };
+
+  const paymentFoudToBeDeleted = paymentRecords.filter(
+    (payment) => payment.id === selectedPaymentToDelete.id
+  );
+
+  console.log({ paymentRecords });
+  console.log({ paymentFoudToBeDeleted });
 
   return (
     <PaymentsProvider>
@@ -38,6 +75,12 @@ export default function PaymentsPage() {
         visible={showAddModal}
         onCancel={() => setShowAddModal(false)}
         onSubmit={handleSubmitAddPayment}
+      />
+      <DeleteModal
+        visible={showDeleteModal}
+        onCancel={() => setShowDeleteModal(false)}
+        paymentRecord={selectedPaymentToDelete}
+        onSubmit={handleSubmitDeletePayment}
       />
       <s.Wrapper>
         <Menu user={user} onLogout={logout} />
@@ -58,6 +101,7 @@ export default function PaymentsPage() {
               pageSize={pageSize}
               handlePageChange={handlePageChange}
               total={paymentRecords.length}
+              handleClickDeleteButton={handleClickDeleteButton}
             />
           </s.TableWrapper>
         </Container>

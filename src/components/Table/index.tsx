@@ -1,8 +1,6 @@
-import { useState, useContext } from 'react';
-import { PaymentsContext } from 'contexts';
 import { Table as AntdTable, Tag as AntdTag, Space as AntdSpace } from 'antd';
 
-import { Text, DeleteModal } from 'components';
+import { Text } from 'components';
 import { PencilIcon, BinIcon } from 'assets/icons';
 
 import { theme } from 'styles';
@@ -16,8 +14,9 @@ export type TableProps = {
   data: PaymentRecordProps[];
   currentPage: number;
   pageSize: number;
-  handlePageChange: (currentPage: number, pageSize: number) => void;
   total: number;
+  handleClickDeleteButton: (record: PaymentRecordProps) => void;
+  handlePageChange: (currentPage: number, pageSize: number) => void;
 };
 
 const sortText = (
@@ -40,33 +39,9 @@ const Table = ({
   currentPage,
   pageSize,
   total,
+  handleClickDeleteButton,
   handlePageChange
 }: TableProps) => {
-  const { deletePayment } = useContext(PaymentsContext);
-
-  const [showDeleteModal, setShowDeleteModal] = useState<boolean>(false);
-  const [selectedPayment, setSelectedPayment] = useState<PaymentRecordProps>({
-    id: 0,
-    name: '',
-    username: 'diegosilvatech',
-    title: '',
-    value: 0,
-    date: '',
-    image:
-      'https://d1fdloi71mui9q.cloudfront.net/xDiFfl33T8CKfh4oT1RP_gw8aK99eof1l95P0',
-    isPayed: false
-  });
-
-  const handleClickDeleteButton = (record: PaymentRecordProps) => {
-    setShowDeleteModal(true);
-    setSelectedPayment(record);
-  };
-
-  const handleSubmitDeletePayment = (paymentId: number) => {
-    deletePayment(paymentId);
-    setShowDeleteModal(false);
-  };
-
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const columns: any = [
     {
@@ -215,12 +190,6 @@ const Table = ({
 
   return (
     <s.Wrapper aria-label="Table component">
-      <DeleteModal
-        visible={showDeleteModal}
-        onCancel={() => setShowDeleteModal(false)}
-        paymentRecord={selectedPayment}
-        onSubmit={handleSubmitDeletePayment}
-      />
       <AntdTable
         columns={columns}
         dataSource={data}
