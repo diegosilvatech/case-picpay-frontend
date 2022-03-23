@@ -4,7 +4,7 @@ import { InputText, Button } from 'components';
 import { getCurrentDate, getCurrentTime } from 'core/helpers/date';
 import { PaymentRecordProps } from 'core/types/payments/globals';
 
-import { MailIcon } from 'assets/icons';
+import { MailIcon, DollarIcon, BadgeIcon } from 'assets/icons';
 
 import * as s from './styles';
 
@@ -90,7 +90,7 @@ const AddForm = ({ onSubmit, onCancel }: AddFormProps) => {
               label="Valor"
               name="value"
               type="number"
-              icon={<MailIcon />}
+              icon={<DollarIcon />}
               iconPosition="right"
               value={String(formData.value)}
               onChange={(event) =>
@@ -103,7 +103,7 @@ const AddForm = ({ onSubmit, onCancel }: AddFormProps) => {
               label="Título"
               name="title"
               placeholder="Título"
-              icon={<MailIcon />}
+              icon={<BadgeIcon />}
               iconPosition="right"
               value={formData.title}
               onChange={(event) =>
