@@ -31,3 +31,7 @@ export const getHourFromDate = (date: string) => {
   };
   return new Date(date).toLocaleDateString('pt-BR', options).substring(11);
 };
+
+export const getCurrentDate = () => {
+  return new Date().toISOString().split('T')[0];
+};

@@ -1,3 +1,3 @@
-import { api, getCredentials, getPaymentList } from './api';
+import { api, getCredentials, getTasks, createTask } from './api';
 
-export { api, getCredentials, getPaymentList };
+export { api, getCredentials, getTasks, createTask };

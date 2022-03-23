@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { InputText, Button } from 'components';
 
+import { getCurrentDate } from 'core/helpers/date';
+
 import { MailIcon } from 'assets/icons';
 
 import * as s from './styles';
@@ -18,18 +20,27 @@ export type AddFormProps = {
   onSubmit: (formData: AddFormDataProps) => void;
 };
 
+const today = getCurrentDate();
+
 const AddForm = ({ onSubmit, onCancel }: AddFormProps) => {
-  const [formData, setFormData] = useState<AddFormDataProps>({
+  const [initialFormState] = useState<AddFormDataProps>({
     name: '',
     value: 0,
-    date: '',
+    date: today,
     title: '',
     isPayed: false
   });
 
+  const [formData, setFormData] = useState<AddFormDataProps>(initialFormState);
+
+  const handleReset = () => {
+    setFormData(initialFormState);
+  };
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     onSubmit(formData);
+    handleReset();
   };
 
   return (
@@ -59,6 +70,7 @@ const AddForm = ({ onSubmit, onCancel }: AddFormProps) => {
               name="date"
               placeholder="data"
               type="date"
+              min={today}
               value={formData.date}
               onChange={(event) =>
                 setFormData({ ...formData, date: event.target.value })

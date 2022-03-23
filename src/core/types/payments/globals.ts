@@ -8,3 +8,8 @@ export type PaymentRecordProps = {
   image: string;
   isPayed: boolean;
 };
+
+export type AddPaymentProps = Pick<
+  PaymentRecordProps,
+  'name' | 'value' | 'date' | 'isPayed' | 'title'
+>;

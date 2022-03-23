@@ -9,32 +9,26 @@ import * as s from './styles';
 
 export default function PaymentsPage() {
   const { logout, user } = useContext(AuthContext);
-  const { getPayments, paymentRecords } = useContext(PaymentsContext);
+  const { getPayments, paymentRecords, addPayment } =
+    useContext(PaymentsContext);
 
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [pageSize, setPageSize] = useState<number>(10);
   const [showModal, setShowModal] = useState<boolean>(false);
-
-  const [addPaymentData, setAddPaymentData] = useState<AddFormDataProps | null>(
-    null
-  );
-
-  console.log({ addPaymentData });
 
   const handlePageChange = (currentPage: number, pageSize: number) => {
     setCurrentPage(currentPage), setPageSize(pageSize);
   };
 
   const handleSubmitAddPayment = (addPaymentData: AddFormDataProps) => {
-    setAddPaymentData(addPaymentData);
+    addPayment(addPaymentData);
   };
 
   useEffect(() => {
     getPayments();
   }, []);
 
-  // console.log('paymentRecords', paymentRecords);
-  // console.log('amount', paymentRecords.length);
+  console.log('amount', paymentRecords.length);
 
   return (
     <PaymentsProvider>
