@@ -57,17 +57,13 @@ export default function PaymentsPage() {
     setSelectedPaymentToDelete(record);
   };
 
-  const handleSubmitDeletePayment = (paymentId: number) => {
-    deletePayment(paymentId);
+  const handleSubmitDeletePayment = () => {
+    const paymentFoudToBeDeleted: PaymentRecordProps[] = paymentRecords.filter(
+      (payment) => payment.id === selectedPaymentToDelete.id
+    );
+    deletePayment(paymentFoudToBeDeleted[0].id);
     setShowDeleteModal(false);
   };
-
-  const paymentFoudToBeDeleted = paymentRecords.filter(
-    (payment) => payment.id === selectedPaymentToDelete.id
-  );
-
-  console.log({ paymentRecords });
-  console.log({ paymentFoudToBeDeleted });
 
   return (
     <PaymentsProvider>

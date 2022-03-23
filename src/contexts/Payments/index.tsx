@@ -9,7 +9,7 @@ export type PaymentsProviderValueProps = {
   paymentRecords: PaymentRecordProps[];
   getPayments: () => void;
   addPayment: (payment: PaymentRecordProps) => void;
-  deletePayment: (paymentId: number) => void;
+  deletePayment: (paymendId: number) => void;
 };
 
 export type PaymentProviderProps = {
@@ -40,6 +40,10 @@ export const PaymentsProvider = ({ children }: PaymentProviderProps) => {
 
   const deletePayment = async (paymentId: number) => {
     deleteTask(paymentId);
+    const newPaymentList = paymentRecords.filter(
+      (paymentRecord) => paymentRecord.id !== paymentId
+    );
+    setPayments(newPaymentList);
   };
 
   const paymentsProviderValue: PaymentsProviderValueProps = {

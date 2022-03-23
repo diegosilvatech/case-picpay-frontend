@@ -6,7 +6,7 @@ export type DeleteModalProps = {
   visible: boolean;
   onCancel: () => void;
   paymentRecord: PaymentRecordProps;
-  onSubmit: (paymentId: number) => void;
+  onSubmit: () => void;
 };
 
 const DeleteModal = ({
