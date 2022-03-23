@@ -3,15 +3,12 @@ import { AxiosResponse } from 'axios';
 
 import { getTasks, createTask } from 'core/services';
 
-import {
-  PaymentRecordProps,
-  AddPaymentProps
-} from 'core/types/payments/globals';
+import { PaymentRecordProps } from 'core/types/payments/globals';
 
 export type PaymentsProviderValueProps = {
   paymentRecords: PaymentRecordProps[];
   getPayments: () => void;
-  addPayment: (payment: AddPaymentProps) => void;
+  addPayment: (payment: PaymentRecordProps) => void;
 };
 
 export type PaymentProviderProps = {
@@ -25,16 +22,17 @@ export const PaymentsContext = createContext<PaymentsProviderValueProps>({
 });
 
 export const PaymentsProvider = ({ children }: PaymentProviderProps) => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const [paymentRecords, setPayments] = useState<any>([]);
+  const [paymentRecords, setPayments] = useState<PaymentRecordProps[]>([]);
 
   const getPayments = async () => {
     const response = await getTasks();
     setPayments(response.data);
   };
 
-  const addPayment = async (payment: AddPaymentProps) => {
-    const response: AxiosResponse<AddPaymentProps> = await createTask(payment);
+  const addPayment = async (payment: PaymentRecordProps) => {
+    const response: AxiosResponse<PaymentRecordProps> = await createTask(
+      payment
+    );
     setPayments([...paymentRecords, response.data]);
   };
 

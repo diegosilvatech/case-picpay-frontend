@@ -3,7 +3,7 @@ import { useContext, useState, useEffect } from 'react';
 import { AuthContext, PaymentsProvider, PaymentsContext } from 'contexts';
 
 import { Container, Menu, Text, Button, Table, AddModal } from 'components';
-import { AddFormDataProps } from 'components/Form/AddForm';
+import { PaymentRecordProps } from 'core/types/payments/globals';
 
 import * as s from './styles';
 
@@ -20,7 +20,7 @@ export default function PaymentsPage() {
     setCurrentPage(currentPage), setPageSize(pageSize);
   };
 
-  const handleSubmitAddPayment = (addPaymentData: AddFormDataProps) => {
+  const handleSubmitAddPayment = (addPaymentData: PaymentRecordProps) => {
     addPayment(addPaymentData);
     setShowModal(false);
     // console.log('SUBMIT', { paymentRecords });

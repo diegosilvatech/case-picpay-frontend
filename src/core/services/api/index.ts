@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { AddPaymentProps } from 'core/types/payments/globals';
+import { PaymentRecordProps } from 'core/types/payments/globals';
 
 const api = axios.create({
   baseURL: 'http://localhost:8000'
@@ -15,7 +15,7 @@ const getTasks = async () => {
   return api.get(`/tasks`);
 };
 
-const createTask = async (task: AddPaymentProps) => {
+const createTask = async (task: PaymentRecordProps) => {
   return api.post(`/tasks`, task);
 };
 

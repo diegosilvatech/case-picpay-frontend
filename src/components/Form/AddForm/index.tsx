@@ -2,36 +2,33 @@ import { useState } from 'react';
 import { InputText, Button } from 'components';
 
 import { getCurrentDate, getCurrentTime } from 'core/helpers/date';
+import { PaymentRecordProps } from 'core/types/payments/globals';
 
 import { MailIcon } from 'assets/icons';
 
 import * as s from './styles';
 
-export type AddFormDataProps = {
-  name: string;
-  value: number;
-  date: string;
-  title: string;
-  isPayed: boolean;
-};
-
 export type AddFormProps = {
   onCancel: () => void;
-  onSubmit: (formData: AddFormDataProps) => void;
+  onSubmit: (formData: PaymentRecordProps) => void;
 };
 
 const today = getCurrentDate();
 
 const AddForm = ({ onSubmit, onCancel }: AddFormProps) => {
-  const [initialFormState] = useState<AddFormDataProps>({
+  const [initialFormState] = useState<PaymentRecordProps>({
+    id: 0,
     name: '',
+    username: '',
+    title: '',
     value: 0,
     date: today,
-    title: '',
+    image: '',
     isPayed: false
   });
 
-  const [formData, setFormData] = useState<AddFormDataProps>(initialFormState);
+  const [formData, setFormData] =
+    useState<PaymentRecordProps>(initialFormState);
 
   const handleReset = () => {
     setFormData(initialFormState);
