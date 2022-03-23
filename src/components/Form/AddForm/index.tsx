@@ -23,7 +23,7 @@ type InitialFormStateProps = {
 } & Omit<PaymentRecordProps, 'value'>;
 
 const AddForm = ({ onSubmit, onCancel }: AddFormProps) => {
-  const [initialFormState] = useState<InitialFormStateProps>({
+  const initialFormState: InitialFormStateProps = {
     id: 0,
     name: '',
     username: 'diegosilvatech',
@@ -33,7 +33,7 @@ const AddForm = ({ onSubmit, onCancel }: AddFormProps) => {
     image:
       'https://d1fdloi71mui9q.cloudfront.net/xDiFfl33T8CKfh4oT1RP_gw8aK99eof1l95P0',
     isPayed: false
-  });
+  };
 
   const [formData, setFormData] =
     useState<InitialFormStateProps>(initialFormState);
