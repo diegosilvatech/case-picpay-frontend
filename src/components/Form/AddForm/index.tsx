@@ -1,10 +1,15 @@
 import { useState } from 'react';
+
 import { InputText, Button } from 'components';
-
-import { getCurrentDate, getCurrentTime } from 'core/helpers/date';
-import { PaymentRecordProps } from 'core/types/payments/globals';
-
 import { MailIcon, DollarIcon, BadgeIcon } from 'assets/icons';
+
+import { PaymentRecordProps } from 'core/types/payments/globals';
+import { getCurrentDate, getCurrentTime } from 'core/helpers/date';
+import {
+  applyCurrencyMask,
+  removeCurrencyMask,
+  convertToDecial
+} from 'core/helpers/currency';
 
 import * as s from './styles';
 
@@ -13,23 +18,25 @@ export type AddFormProps = {
   onSubmit: (formData: PaymentRecordProps) => void;
 };
 
-const today = getCurrentDate();
+type InitialFormStateProps = {
+  value: string;
+} & Omit<PaymentRecordProps, 'value'>;
 
 const AddForm = ({ onSubmit, onCancel }: AddFormProps) => {
-  const [initialFormState] = useState<PaymentRecordProps>({
+  const [initialFormState] = useState<InitialFormStateProps>({
     id: 0,
     name: '',
     username: 'diegosilvatech',
     title: '',
-    value: 0,
-    date: today,
+    value: '',
+    date: getCurrentDate(),
     image:
       'https://d1fdloi71mui9q.cloudfront.net/xDiFfl33T8CKfh4oT1RP_gw8aK99eof1l95P0',
     isPayed: false
   });
 
   const [formData, setFormData] =
-    useState<PaymentRecordProps>(initialFormState);
+    useState<InitialFormStateProps>(initialFormState);
 
   const handleReset = () => {
     setFormData(initialFormState);
@@ -38,7 +45,13 @@ const AddForm = ({ onSubmit, onCancel }: AddFormProps) => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const fullDate = `${formData.date + getCurrentTime()}`;
-    onSubmit({ ...formData, date: fullDate });
+    const unformattedValue = removeCurrencyMask(formData.value);
+
+    onSubmit({
+      ...formData,
+      value: convertToDecial(unformattedValue),
+      date: fullDate
+    });
     handleReset();
   };
 
@@ -54,7 +67,6 @@ const AddForm = ({ onSubmit, onCancel }: AddFormProps) => {
               label="Nome"
               name="user"
               placeholder="Nome"
-              required
               icon={<MailIcon />}
               iconPosition="right"
               value={formData.name}
@@ -72,7 +84,7 @@ const AddForm = ({ onSubmit, onCancel }: AddFormProps) => {
               name="date"
               placeholder="data"
               type="date"
-              min={today}
+              min={getCurrentDate()}
               value={formData.date}
               onChange={(event) =>
                 setFormData({
@@ -89,12 +101,14 @@ const AddForm = ({ onSubmit, onCancel }: AddFormProps) => {
             <InputText
               label="Valor"
               name="value"
-              type="number"
               icon={<DollarIcon />}
               iconPosition="right"
-              value={String(formData.value)}
+              value={applyCurrencyMask(formData.value)}
               onChange={(event) =>
-                setFormData({ ...formData, value: Number(event.target.value) })
+                setFormData({
+                  ...formData,
+                  value: applyCurrencyMask(event.target.value)
+                })
               }
             />
           </s.FieldWrapper>
