@@ -188,8 +188,6 @@ const Table = ({
     }
   ];
 
-  // console.log('DATA_TABLE', { data });
-
   return (
     <s.Wrapper aria-label="Table component">
       <AntdTable

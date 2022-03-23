@@ -13,7 +13,7 @@ export default function PaymentsPage() {
     useContext(PaymentsContext);
 
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [pageSize, setPageSize] = useState<number>(10);
+  const [pageSize, setPageSize] = useState<number>(5);
   const [showModal, setShowModal] = useState<boolean>(false);
 
   const handlePageChange = (currentPage: number, pageSize: number) => {
@@ -23,9 +23,7 @@ export default function PaymentsPage() {
   const handleSubmitAddPayment = (addPaymentData: PaymentRecordProps) => {
     addPayment(addPaymentData);
     setShowModal(false);
-    // console.log('SUBMIT', { paymentRecords });
   };
-  console.log('DATA_TABLE_ON_PAGE', { paymentRecords });
 
   useEffect(() => {
     getPayments();

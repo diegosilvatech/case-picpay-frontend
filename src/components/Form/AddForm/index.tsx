@@ -19,11 +19,12 @@ const AddForm = ({ onSubmit, onCancel }: AddFormProps) => {
   const [initialFormState] = useState<PaymentRecordProps>({
     id: 0,
     name: '',
-    username: '',
+    username: 'diegosilvatech',
     title: '',
     value: 0,
     date: today,
-    image: '',
+    image:
+      'https://d1fdloi71mui9q.cloudfront.net/xDiFfl33T8CKfh4oT1RP_gw8aK99eof1l95P0',
     isPayed: false
   });
 
@@ -50,9 +51,9 @@ const AddForm = ({ onSubmit, onCancel }: AddFormProps) => {
         <s.FormColumn>
           <s.FieldWrapper>
             <InputText
-              label="usuário"
+              label="Nome"
               name="user"
-              placeholder="usuário"
+              placeholder="Nome"
               required
               icon={<MailIcon />}
               iconPosition="right"
@@ -76,7 +77,7 @@ const AddForm = ({ onSubmit, onCancel }: AddFormProps) => {
               onChange={(event) =>
                 setFormData({
                   ...formData,
-                  date: event.target.value + getCurrentTime()
+                  date: event.target.value
                 })
               }
             />
@@ -86,10 +87,9 @@ const AddForm = ({ onSubmit, onCancel }: AddFormProps) => {
         <s.FormColumn>
           <s.FieldWrapper>
             <InputText
-              label="valor"
+              label="Valor"
               name="value"
               type="number"
-              placeholder="valor"
               icon={<MailIcon />}
               iconPosition="right"
               value={String(formData.value)}
@@ -100,9 +100,9 @@ const AddForm = ({ onSubmit, onCancel }: AddFormProps) => {
           </s.FieldWrapper>
           <s.FieldWrapper>
             <InputText
-              label="título"
+              label="Título"
               name="title"
-              placeholder="título"
+              placeholder="Título"
               icon={<MailIcon />}
               iconPosition="right"
               value={formData.title}

@@ -32,6 +32,7 @@ export const UserImage = styled.img`
   ${({ theme }) => css`
     border-radius: ${theme.border.radius.rounded};
     width: 8rem;
+    height: 8rem;
     background: linear-gradient(
       to bottom right,
       ${theme.colors.primary},
