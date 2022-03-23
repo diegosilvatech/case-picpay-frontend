@@ -19,6 +19,14 @@ const buttonModifiers = {
     &:hover {
       background: ${darken(0.05, theme.colors.white)};
     }
+  `,
+  error: (theme: DefaultTheme) => css`
+    background: ${theme.colors.error};
+    color: ${theme.colors.white};
+
+    &:hover {
+      background: ${darken(0.05, theme.colors.error)};
+    }
   `
 };
 

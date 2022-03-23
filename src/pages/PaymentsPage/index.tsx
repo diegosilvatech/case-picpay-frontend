@@ -14,7 +14,8 @@ export default function PaymentsPage() {
 
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [pageSize, setPageSize] = useState<number>(5);
-  const [showModal, setShowModal] = useState<boolean>(false);
+
+  const [showAddModal, setShowAddModal] = useState<boolean>(false);
 
   const handlePageChange = (currentPage: number, pageSize: number) => {
     setCurrentPage(currentPage), setPageSize(pageSize);
@@ -22,7 +23,7 @@ export default function PaymentsPage() {
 
   const handleSubmitAddPayment = (addPaymentData: PaymentRecordProps) => {
     addPayment(addPaymentData);
-    setShowModal(false);
+    setShowAddModal(false);
   };
 
   useEffect(() => {
@@ -32,8 +33,8 @@ export default function PaymentsPage() {
   return (
     <PaymentsProvider>
       <AddModal
-        visible={showModal}
-        onCancel={() => setShowModal(false)}
+        visible={showAddModal}
+        onCancel={() => setShowAddModal(false)}
         onSubmit={handleSubmitAddPayment}
       />
       <s.Wrapper>
@@ -43,7 +44,7 @@ export default function PaymentsPage() {
             <Text type="h1" size="extraLarge" weight="semiBold">
               Meus pagamentos
             </Text>
-            <Button onClick={() => setShowModal(true)}>
+            <Button onClick={() => setShowAddModal(true)}>
               Adicionar pagamento
             </Button>
           </s.HeaderWrapper>

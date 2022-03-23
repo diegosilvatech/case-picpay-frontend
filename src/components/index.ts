@@ -1,4 +1,6 @@
 /* PLOP_INJECT_IMPORT */
+import DeleteForm from './Form/DeleteForm';
+import DeleteModal from './Modal/DeleteModal';
 import AddForm from './Form/AddForm';
 import AddModal from './Modal/AddModal';
 import BaseModal from './Modal/BaseModal';
@@ -17,6 +19,8 @@ import Icon from './Icon';
 
 export {
   /* PLOP_INJECT_EXPORT */
+  DeleteForm,
+  DeleteModal,
   AddForm,
   AddModal,
   BaseModal,

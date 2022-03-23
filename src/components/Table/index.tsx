@@ -1,12 +1,13 @@
+import { useState } from 'react';
 import { Table as AntdTable, Tag as AntdTag, Space as AntdSpace } from 'antd';
 
+import { Text, DeleteModal } from 'components';
+import { PencilIcon, BinIcon } from 'assets/icons';
+
+import { theme } from 'styles';
 import { formatDate, getHourFromDate } from 'core/helpers/date';
 import { formatCurrency } from 'core/helpers/currency';
 import { PaymentRecordProps } from 'core/types/payments/globals';
-import { theme } from 'styles';
-import { PencilIcon, BinIcon } from 'assets/icons';
-
-import { Text } from 'components';
 
 import * as s from './styles';
 
@@ -40,6 +41,28 @@ const Table = ({
   total,
   handlePageChange
 }: TableProps) => {
+  const [showDeleteModal, setShowDeleteModal] = useState<boolean>(false);
+  const [selectedPayment, setSelectedPayment] = useState<PaymentRecordProps>({
+    id: 0,
+    name: '',
+    username: 'diegosilvatech',
+    title: '',
+    value: 0,
+    date: '',
+    image:
+      'https://d1fdloi71mui9q.cloudfront.net/xDiFfl33T8CKfh4oT1RP_gw8aK99eof1l95P0',
+    isPayed: false
+  });
+
+  const handleClickDeletePayment = (record: PaymentRecordProps) => {
+    setShowDeleteModal(true);
+    setSelectedPayment(record);
+  };
+
+  const handleSubmitDeletePayment = () => {
+    console.log('CALL DELETE API');
+  };
+
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const columns: any = [
     {
@@ -177,9 +200,7 @@ const Table = ({
             >
               <PencilIcon />
             </s.PencilIconWrapper>
-            <s.BinIconWrapper
-              onClick={() => console.log('call DELETE', record.name)}
-            >
+            <s.BinIconWrapper onClick={() => handleClickDeletePayment(record)}>
               <BinIcon />
             </s.BinIconWrapper>
           </AntdSpace>
@@ -190,6 +211,12 @@ const Table = ({
 
   return (
     <s.Wrapper aria-label="Table component">
+      <DeleteModal
+        visible={showDeleteModal}
+        onCancel={() => setShowDeleteModal(false)}
+        paymentRecord={selectedPayment}
+        onSubmit={handleSubmitDeletePayment}
+      />
       <AntdTable
         columns={columns}
         dataSource={data}

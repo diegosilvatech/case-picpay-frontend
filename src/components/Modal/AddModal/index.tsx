@@ -1,4 +1,5 @@
 import { BaseModal, AddForm } from 'components';
+
 import { PaymentRecordProps } from 'core/types/payments/globals';
 
 export type AddModalProps = {

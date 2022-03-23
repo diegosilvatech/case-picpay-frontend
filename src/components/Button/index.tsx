@@ -2,7 +2,7 @@ import * as s from './styles';
 
 export type ButtonProps = {
   children: React.ReactChild;
-  variant?: 'primary' | 'secondary';
+  variant?: 'primary' | 'secondary' | 'error';
   onClick?: () => void;
   type?: 'button' | 'submit' | 'reset';
   fullWidth?: boolean;
