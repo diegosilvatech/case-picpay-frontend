@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { PaymentsContext } from 'contexts';
 import { Table as AntdTable, Tag as AntdTag, Space as AntdSpace } from 'antd';
 
 import { Text, DeleteModal } from 'components';
@@ -41,6 +42,8 @@ const Table = ({
   total,
   handlePageChange
 }: TableProps) => {
+  const { deletePayment } = useContext(PaymentsContext);
+
   const [showDeleteModal, setShowDeleteModal] = useState<boolean>(false);
   const [selectedPayment, setSelectedPayment] = useState<PaymentRecordProps>({
     id: 0,
@@ -54,13 +57,14 @@ const Table = ({
     isPayed: false
   });
 
-  const handleClickDeletePayment = (record: PaymentRecordProps) => {
+  const handleClickDeleteButton = (record: PaymentRecordProps) => {
     setShowDeleteModal(true);
     setSelectedPayment(record);
   };
 
-  const handleSubmitDeletePayment = () => {
-    console.log('CALL DELETE API');
+  const handleSubmitDeletePayment = (paymentId: number) => {
+    deletePayment(paymentId);
+    setShowDeleteModal(false);
   };
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -200,7 +204,7 @@ const Table = ({
             >
               <PencilIcon />
             </s.PencilIconWrapper>
-            <s.BinIconWrapper onClick={() => handleClickDeletePayment(record)}>
+            <s.BinIconWrapper onClick={() => handleClickDeleteButton(record)}>
               <BinIcon />
             </s.BinIconWrapper>
           </AntdSpace>

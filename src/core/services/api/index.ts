@@ -19,4 +19,8 @@ const createTask = async (task: PaymentRecordProps) => {
   return api.post(`/tasks`, task);
 };
 
-export { api, getCredentials, getTasks, createTask };
+const deleteTask = async (taskId: number) => {
+  return api.delete(`/tasks/${taskId}`);
+};
+
+export { api, getCredentials, getTasks, createTask, deleteTask };

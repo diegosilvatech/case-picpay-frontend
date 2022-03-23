@@ -1,7 +1,7 @@
 import { createContext, useState } from 'react';
 import { AxiosResponse } from 'axios';
 
-import { getTasks, createTask } from 'core/services';
+import { getTasks, createTask, deleteTask } from 'core/services';
 
 import { PaymentRecordProps } from 'core/types/payments/globals';
 
@@ -9,6 +9,7 @@ export type PaymentsProviderValueProps = {
   paymentRecords: PaymentRecordProps[];
   getPayments: () => void;
   addPayment: (payment: PaymentRecordProps) => void;
+  deletePayment: (paymentId: number) => void;
 };
 
 export type PaymentProviderProps = {
@@ -18,7 +19,8 @@ export type PaymentProviderProps = {
 export const PaymentsContext = createContext<PaymentsProviderValueProps>({
   paymentRecords: [],
   getPayments: () => ({}),
-  addPayment: () => ({})
+  addPayment: () => ({}),
+  deletePayment: () => ({})
 });
 
 export const PaymentsProvider = ({ children }: PaymentProviderProps) => {
@@ -36,10 +38,15 @@ export const PaymentsProvider = ({ children }: PaymentProviderProps) => {
     setPayments([...paymentRecords, response.data]);
   };
 
+  const deletePayment = async (paymentId: number) => {
+    deleteTask(paymentId);
+  };
+
   const paymentsProviderValue: PaymentsProviderValueProps = {
     paymentRecords,
     getPayments,
-    addPayment
+    addPayment,
+    deletePayment
   };
 
   return (

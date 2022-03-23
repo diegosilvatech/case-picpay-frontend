@@ -12,6 +12,8 @@ export default function PaymentsPage() {
   const { getPayments, paymentRecords, addPayment } =
     useContext(PaymentsContext);
 
+  console.log({ paymentRecords });
+
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [pageSize, setPageSize] = useState<number>(5);
 

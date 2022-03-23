@@ -9,7 +9,7 @@ import * as s from './styles';
 export type DeleteFormProps = {
   paymentRecord: PaymentRecordProps;
   onCancel: () => void;
-  onSubmit: () => void;
+  onSubmit: (paymentId: number) => void;
 };
 
 const DeleteForm = ({ paymentRecord, onCancel, onSubmit }: DeleteFormProps) => {
@@ -63,7 +63,7 @@ const DeleteForm = ({ paymentRecord, onCancel, onSubmit }: DeleteFormProps) => {
           type="submit"
           fullWidth
           variant="error"
-          onClick={() => onSubmit()}
+          onClick={() => onSubmit(paymentRecord.id)}
         >
           excluir
         </Button>
