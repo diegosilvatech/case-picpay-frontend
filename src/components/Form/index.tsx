@@ -1,7 +1,9 @@
 import FormLogin from './FormLogin';
+import FormAdd from './FormAdd';
 
 const Form = {
-  FormLogin
+  FormLogin,
+  FormAdd
 };
 
 export default Form;

@@ -1,4 +1,4 @@
-import { BaseModal, AddForm } from 'components';
+import { BaseModal, AddForm, Form } from 'components';
 
 import { PaymentRecordProps } from 'core/types/payments/globals';
 

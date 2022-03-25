@@ -1,5 +1,11 @@
 import { InputHTMLAttributes } from 'react';
 
+import {
+  applyCurrencyMask,
+  removeCurrencyMask,
+  convertToDecial
+} from 'core/helpers/currency';
+
 import * as s from './styles';
 
 export type FieldTextProps = {
@@ -8,6 +14,7 @@ export type FieldTextProps = {
   type?: string;
   icon?: React.ReactNode;
   iconPosition?: 'left' | 'right';
+  mask?: () => void;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   register?: any;
 } & InputHTMLAttributes<HTMLInputElement>;
