@@ -141,10 +141,10 @@ const FormEdit = ({ paymentRecord, onCancel, onSubmit }: FormEditProps) => {
       </s.FormRow>
       <s.ButtonsWrapper>
         <Button fullWidth variant="secondary" onClick={_onCancel}>
-          cancelar
+          cancel
         </Button>
         <Button type="submit" fullWidth>
-          editar
+          edit
         </Button>
       </s.ButtonsWrapper>
     </s.Wrapper>

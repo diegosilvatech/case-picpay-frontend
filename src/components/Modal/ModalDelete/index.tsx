@@ -15,11 +15,7 @@ const ModalDelete = ({
   onCancel,
   onSubmit
 }: ModalDeleteProps) => (
-  <Modal.ModalBase
-    title="excluir pagamento"
-    visible={visible}
-    onCancel={onCancel}
-  >
+  <Modal.ModalBase title="delete payment" visible={visible} onCancel={onCancel}>
     <Form.FormDelete
       paymentRecord={paymentRecord}
       onCancel={onCancel}

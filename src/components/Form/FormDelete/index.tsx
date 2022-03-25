@@ -21,19 +21,19 @@ export default function FormDelete({
     <s.Wrapper aria-label="FormDelete component">
       <s.WarningWrapper>
         <s.WarningMessage>
-          <Text type="span">{`Você está certo de que realmente deseja`}</Text>
+          <Text type="span">{`Are you sure you really want`}</Text>
           <Text
             type="span"
             weight="semiBold"
             color="error"
             isUpperCase
-          >{` excluir`}</Text>
-          <Text type="span">{` o pagamento de`}</Text>
+          >{` delete`}</Text>
+          <Text type="span">{` the payment of`}</Text>
           <Text type="span" weight="semiBold">{` ${paymentRecord.name}`}</Text>
           <Text type="span">?</Text>
 
           <Text type="p" opacity="smooth" size="small">
-            Essa ação não poderá ser desfeita no futuro!
+            This action cannot be undone in the future!
           </Text>
         </s.WarningMessage>
       </s.WarningWrapper>
@@ -41,19 +41,19 @@ export default function FormDelete({
       <s.PaymentInfoWrapper>
         <s.InfoLabelWrapper>
           <Text type="span" weight="semiBold">
-            Nome:
+            Name:
           </Text>
           <Text type="span">{` ${paymentRecord.name}`}</Text>
         </s.InfoLabelWrapper>
         <s.InfoLabelWrapper>
           <Text type="span" weight="semiBold">
-            Data:
+            Date:
           </Text>
           <Text type="span">{` ${formatDate(paymentRecord.date)}`}</Text>
         </s.InfoLabelWrapper>
         <s.InfoLabelWrapper>
           <Text type="span" weight="semiBold">
-            Valor:
+            Value:
           </Text>
           <Text type="span">{` ${formatCurrency(paymentRecord.value)}`}</Text>
         </s.InfoLabelWrapper>
@@ -61,7 +61,7 @@ export default function FormDelete({
 
       <s.ButtonsWrapper>
         <Button fullWidth variant="secondary" onClick={onCancel}>
-          cancelar
+          cancel
         </Button>
         <Button
           type="submit"
@@ -69,7 +69,7 @@ export default function FormDelete({
           variant="error"
           onClick={() => onSubmit()}
         >
-          excluir
+          delete
         </Button>
       </s.ButtonsWrapper>
     </s.Wrapper>

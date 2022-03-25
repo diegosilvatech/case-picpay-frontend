@@ -35,7 +35,7 @@ export default function FormLogin({ onSubmit }: FormLoginProps) {
     >
       <Field.FieldText
         name="email"
-        label="e-mail"
+        label="email"
         type="text"
         register={register}
       />
@@ -56,7 +56,7 @@ export default function FormLogin({ onSubmit }: FormLoginProps) {
         )}
       </s.ErrorMessageWrapper>
       <Button type="submit" fullWidth>
-        entrar
+        sign in
       </Button>
     </s.Wrapper>
   );

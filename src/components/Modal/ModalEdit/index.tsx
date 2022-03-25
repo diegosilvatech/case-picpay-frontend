@@ -20,11 +20,7 @@ const ModalEdit = ({
   };
 
   return (
-    <Modal.ModalBase
-      title="Editar pagamento"
-      visible={visible}
-      onCancel={onCancel}
-    >
+    <Modal.ModalBase title="edit payment" visible={visible} onCancel={onCancel}>
       <Form.FormEdit
         onSubmit={handleSubmit}
         onCancel={onCancel}

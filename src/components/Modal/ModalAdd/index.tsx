@@ -14,11 +14,7 @@ const ModalAdd = ({ visible, onCancel, onSubmit }: ModalAddProps) => {
   };
 
   return (
-    <Modal.ModalBase
-      title="Adicionar pagamento"
-      visible={visible}
-      onCancel={onCancel}
-    >
+    <Modal.ModalBase title="add payment" visible={visible} onCancel={onCancel}>
       <Form.FormAdd onSubmit={handleSubmit} onCancel={onCancel} />
     </Modal.ModalBase>
   );

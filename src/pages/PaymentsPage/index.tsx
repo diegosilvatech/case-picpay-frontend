@@ -99,12 +99,10 @@ export default function PaymentsPage() {
         <Menu user={user} onLogout={logout} />
         <Container>
           <s.HeaderWrapper>
-            <Text type="h1" size="extraLarge" weight="semiBold">
-              Meus pagamentos
+            <Text type="h1" size="extraLarge" weight="semiBold" isUpperCase>
+              my payments
             </Text>
-            <Button onClick={() => setShowModalAdd(true)}>
-              Adicionar pagamento
-            </Button>
+            <Button onClick={() => setShowModalAdd(true)}>add payment</Button>
           </s.HeaderWrapper>
 
           <s.TableWrapper>

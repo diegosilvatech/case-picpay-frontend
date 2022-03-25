@@ -132,10 +132,10 @@ export default function FormAdd({ onCancel, onSubmit }: FormAddProps) {
       </s.FormRow>
       <s.ButtonsWrapper>
         <Button fullWidth variant="secondary" onClick={onCancel}>
-          cancelar
+          cancel
         </Button>
         <Button type="submit" fullWidth>
-          adicionar
+          add
         </Button>
       </s.ButtonsWrapper>
     </s.Wrapper>

@@ -59,7 +59,7 @@ const Table = ({
       )
     },
     {
-      title: 'Usuário',
+      title: 'User',
       dataIndex: 'name',
       key: 'name',
       render: (name: string, record: PaymentRecordProps) => (
@@ -84,7 +84,7 @@ const Table = ({
       }
     },
     {
-      title: 'Título',
+      title: 'Title',
       dataIndex: 'title',
       key: 'title',
       render: (title: string) => (
@@ -104,7 +104,7 @@ const Table = ({
       }
     },
     {
-      title: 'Data',
+      title: 'Date',
       dataIndex: 'date',
       key: 'date',
       render: (date: string, record: PaymentRecordProps) => (
@@ -130,7 +130,7 @@ const Table = ({
       defaultSortOrder: 'descend'
     },
     {
-      title: 'Valor',
+      title: 'Value',
       key: 'value',
       dataIndex: 'value',
       render: (value: number) => (
@@ -150,14 +150,14 @@ const Table = ({
       }
     },
     {
-      title: 'Situação',
+      title: 'Status',
       key: 'isPayed',
       dataIndex: 'isPayed',
       render: (status: string) => {
         if (status) {
-          return <AntdTag color={theme.colors.primary}>PAGO</AntdTag>;
+          return <AntdTag color={theme.colors.primary}>PAYED</AntdTag>;
         }
-        return <AntdTag color={theme.colors.black}>PENDENTE</AntdTag>;
+        return <AntdTag color={theme.colors.black}>PENDING</AntdTag>;
       },
       filters: [
         { text: 'Pago', value: true },
@@ -171,7 +171,7 @@ const Table = ({
       }
     },
     {
-      title: 'Ações',
+      title: 'Actions',
       key: 'action',
       render: (record: PaymentRecordProps) => {
         return (
