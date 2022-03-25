@@ -1,9 +1,7 @@
 /* PLOP_INJECT_IMPORT */
 import Field from './Field';
 import Form from './Form';
-import ModalDelete from './Modal/ModalDelete';
-import ModalAdd from './Modal/ModalAdd';
-import ModalBase from './Modal/ModalBase';
+import Modal from './Modal';
 import Table from './Table';
 import Logo from './Logo';
 import Menu from './Menu';
@@ -18,9 +16,7 @@ export {
   /* PLOP_INJECT_EXPORT */
   Field,
   Form,
-  ModalDelete,
-  ModalAdd,
-  ModalBase,
+  Modal,
   Table,
   Logo,
   Menu,

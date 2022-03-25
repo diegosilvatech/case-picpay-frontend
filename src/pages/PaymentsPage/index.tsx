@@ -2,15 +2,7 @@ import { useContext, useState, useEffect } from 'react';
 
 import { AuthContext, PaymentsProvider, PaymentsContext } from 'contexts';
 
-import {
-  Container,
-  Menu,
-  Text,
-  Button,
-  Table,
-  ModalAdd,
-  ModalDelete
-} from 'components';
+import { Container, Menu, Text, Button, Table, Modal } from 'components';
 import { PaymentRecordProps } from 'core/types/payments/globals';
 
 import * as s from './styles';
@@ -67,12 +59,12 @@ export default function PaymentsPage() {
 
   return (
     <PaymentsProvider>
-      <ModalAdd
+      <Modal.ModalAdd
         visible={showModalAdd}
         onCancel={() => setShowModalAdd(false)}
         onSubmit={handleSubmitAddPayment}
       />
-      <ModalDelete
+      <Modal.ModalDelete
         visible={showModalDelete}
         onCancel={() => setShowModalDelete(false)}
         paymentRecord={selectedPaymentToDelete}
