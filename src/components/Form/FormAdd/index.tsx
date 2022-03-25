@@ -24,7 +24,7 @@ export type FormAddProps = {
   onSubmit: (formData: FormDataProps) => void;
 };
 
-const FormAdd = ({ onCancel, onSubmit }: FormAddProps) => {
+export default function FormAdd({ onCancel, onSubmit }: FormAddProps) {
   const initialFormState: InitialFormStateProps = {
     id: 0,
     name: '',
@@ -131,6 +131,4 @@ const FormAdd = ({ onCancel, onSubmit }: FormAddProps) => {
       </s.ButtonsWrapper>
     </s.Wrapper>
   );
-};
-
-export default FormAdd;
+}

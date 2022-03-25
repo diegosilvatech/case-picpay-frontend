@@ -12,7 +12,11 @@ export type FormDeleteProps = {
   onSubmit: () => void;
 };
 
-const FormDelete = ({ paymentRecord, onCancel, onSubmit }: FormDeleteProps) => {
+export default function FormDelete({
+  paymentRecord,
+  onCancel,
+  onSubmit
+}: FormDeleteProps) {
   return (
     <s.Wrapper aria-label="FormDelete component">
       <s.WarningWrapper>
@@ -70,6 +74,4 @@ const FormDelete = ({ paymentRecord, onCancel, onSubmit }: FormDeleteProps) => {
       </s.ButtonsWrapper>
     </s.Wrapper>
   );
-};
-
-export default FormDelete;
+}

@@ -12,7 +12,7 @@ export type FormLoginProps = {
   onSubmit: (formData: FormDataProps) => void;
 };
 
-const FormLogin = ({ onSubmit }: FormLoginProps) => {
+export default function FormLogin({ onSubmit }: FormLoginProps) {
   const {
     register,
     handleSubmit,
@@ -50,6 +50,4 @@ const FormLogin = ({ onSubmit }: FormLoginProps) => {
       </Button>
     </s.Wrapper>
   );
-};
-
-export default FormLogin;
+}
