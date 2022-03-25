@@ -6,15 +6,15 @@ import { formatCurrency } from 'core/helpers/currency';
 
 import * as s from './styles';
 
-export type DeleteFormProps = {
+export type FormDeleteProps = {
   paymentRecord: PaymentRecordProps;
   onCancel: () => void;
   onSubmit: () => void;
 };
 
-const DeleteForm = ({ paymentRecord, onCancel, onSubmit }: DeleteFormProps) => {
+const FormDelete = ({ paymentRecord, onCancel, onSubmit }: FormDeleteProps) => {
   return (
-    <s.Wrapper aria-label="DeleteForm component">
+    <s.Wrapper aria-label="FormDelete component">
       <s.WarningWrapper>
         <s.WarningMessage>
           <Text type="span">{`Você está certo de que realmente deseja`}</Text>
@@ -72,4 +72,4 @@ const DeleteForm = ({ paymentRecord, onCancel, onSubmit }: DeleteFormProps) => {
   );
 };
 
-export default DeleteForm;
+export default FormDelete;

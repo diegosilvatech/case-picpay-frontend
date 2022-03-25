@@ -1,12 +1,12 @@
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import DeleteForm, { DeleteFormProps } from '.';
+import FormDelete, { FormDeleteProps } from '.';
 
 export default {
-  title: 'DeleteForm',
-  component: DeleteForm,
+  title: 'Organisms/Form/FormDelete',
+  component: FormDelete,
   parameters: {
-    jest: ['DeleteForm.test.tsx']
+    jest: ['FormDelete.test.tsx']
   },
   args: {
     paymentRecord: {
@@ -23,6 +23,6 @@ export default {
   }
 } as Meta;
 
-export const DeleteFormDefault: Story<DeleteFormProps> = (args) => (
-  <DeleteForm {...args} />
+export const FormDeleteDefault: Story<FormDeleteProps> = (args) => (
+  <FormDelete {...args} />
 );

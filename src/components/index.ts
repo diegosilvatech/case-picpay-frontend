@@ -1,7 +1,6 @@
 /* PLOP_INJECT_IMPORT */
 import Field from './Field';
 import Form from './Form';
-import DeleteForm from './Form/DeleteForm';
 import ModalDelete from './Modal/ModalDelete';
 import ModalAdd from './Modal/ModalAdd';
 import ModalBase from './Modal/ModalBase';
@@ -19,7 +18,6 @@ export {
   /* PLOP_INJECT_EXPORT */
   Field,
   Form,
-  DeleteForm,
   ModalDelete,
   ModalAdd,
   ModalBase,

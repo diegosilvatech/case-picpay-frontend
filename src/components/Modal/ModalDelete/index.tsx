@@ -1,4 +1,4 @@
-import { ModalBase, DeleteForm } from 'components';
+import { ModalBase, Form } from 'components';
 
 import { PaymentRecordProps } from 'core/types/payments/globals';
 
@@ -16,7 +16,7 @@ const ModalDelete = ({
   onSubmit
 }: ModalDeleteProps) => (
   <ModalBase title="excluir pagamento" visible={visible} onCancel={onCancel}>
-    <DeleteForm
+    <Form.FormDelete
       paymentRecord={paymentRecord}
       onCancel={onCancel}
       onSubmit={onSubmit}
