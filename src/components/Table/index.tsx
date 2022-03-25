@@ -160,8 +160,8 @@ const Table = ({
         return <AntdTag color={theme.colors.black}>PENDING</AntdTag>;
       },
       filters: [
-        { text: 'Pago', value: true },
-        { text: 'Pendente', value: false }
+        { text: 'Payed', value: true },
+        { text: 'Pending', value: false }
       ],
       onFilter: (
         value: string | number | boolean,
