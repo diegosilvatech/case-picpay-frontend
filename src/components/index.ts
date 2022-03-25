@@ -1,4 +1,6 @@
 /* PLOP_INJECT_IMPORT */
+import Field from './Field';
+import Form from './Form';
 import DeleteForm from './Form/DeleteForm';
 import DeleteModal from './Modal/DeleteModal';
 import AddForm from './Form/AddForm';
@@ -7,7 +9,6 @@ import BaseModal from './Modal/BaseModal';
 import Table from './Table';
 import Logo from './Logo';
 import Menu from './Menu';
-import LoginForm from './Form/LoginForm';
 import InputPassword from './Input/InputPassword';
 import InputText from './Input/InputText';
 import MediaMatch from './MediaMatch';
@@ -19,6 +20,8 @@ import Icon from './Icon';
 
 export {
   /* PLOP_INJECT_EXPORT */
+  Field,
+  Form,
   DeleteForm,
   DeleteModal,
   AddForm,
@@ -27,7 +30,6 @@ export {
   Table,
   Logo,
   Menu,
-  LoginForm,
   InputPassword,
   InputText,
   MediaMatch,
