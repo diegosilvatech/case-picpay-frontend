@@ -9,7 +9,7 @@ export default {
     jest: ['Icon.test.tsx']
   },
   args: {
-    name: 'arrowDown',
+    name: 'badge',
     color: 'black'
   },
   argTypes: {

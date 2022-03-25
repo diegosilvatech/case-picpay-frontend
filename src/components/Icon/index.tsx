@@ -6,8 +6,7 @@ import {
   PencilIcon as pencil,
   LogoutIcon as logout,
   LockIcon as lock,
-  MailIcon as mail,
-  ArrowDownIcon as arrowDown
+  MailIcon as mail
 } from 'assets/icons';
 
 import { ColorStyleProps } from 'core/types/styles/globals';
@@ -21,20 +20,12 @@ export const icons: any = {
   pencil,
   logout,
   lock,
-  mail,
-  arrowDown
+  mail
 };
 
 export type IconNameTypes =
   /* PLOP_INJECT_ICON_TYPES */
-  | 'badge'
-  | 'dollar'
-  | 'bin'
-  | 'pencil'
-  | 'logout'
-  | 'lock'
-  | 'mail'
-  | 'arrowDown';
+  'badge' | 'dollar' | 'bin' | 'pencil' | 'logout' | 'lock' | 'mail';
 export type IconProps = { name: IconNameTypes; color: ColorStyleProps };
 const Icon = ({ name, color }: IconProps) => {
   const Element = icons[name];
