@@ -2,9 +2,9 @@
 import Field from './Field';
 import Form from './Form';
 import DeleteForm from './Form/DeleteForm';
-import DeleteModal from './Modal/DeleteModal';
-import AddModal from './Modal/AddModal';
-import BaseModal from './Modal/BaseModal';
+import ModalDelete from './Modal/ModalDelete';
+import ModalAdd from './Modal/ModalAdd';
+import ModalBase from './Modal/ModalBase';
 import Table from './Table';
 import Logo from './Logo';
 import Menu from './Menu';
@@ -20,9 +20,9 @@ export {
   Field,
   Form,
   DeleteForm,
-  DeleteModal,
-  AddModal,
-  BaseModal,
+  ModalDelete,
+  ModalAdd,
+  ModalBase,
   Table,
   Logo,
   Menu,

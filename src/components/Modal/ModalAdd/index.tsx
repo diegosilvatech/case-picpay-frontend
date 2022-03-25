@@ -1,27 +1,27 @@
-import { BaseModal, Form } from 'components';
+import { ModalBase, Form } from 'components';
 
 import { PaymentRecordProps } from 'core/types/payments/globals';
 
-export type AddModalProps = {
+export type ModalAddProps = {
   visible: boolean;
   onCancel: () => void;
   onSubmit: (formData: PaymentRecordProps) => void;
 };
 
-const AddModal = ({ visible, onCancel, onSubmit }: AddModalProps) => {
+const ModalAdd = ({ visible, onCancel, onSubmit }: ModalAddProps) => {
   const handleSubmit = (formData: PaymentRecordProps) => {
     onSubmit(formData);
   };
 
   return (
-    <BaseModal
+    <ModalBase
       title="Adicionar pagamento"
       visible={visible}
       onCancel={onCancel}
     >
       <Form.FormAdd onSubmit={handleSubmit} onCancel={onCancel} />
-    </BaseModal>
+    </ModalBase>
   );
 };
 
-export default AddModal;
+export default ModalAdd;

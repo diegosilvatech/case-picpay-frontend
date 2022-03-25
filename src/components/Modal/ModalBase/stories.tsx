@@ -1,10 +1,10 @@
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import BaseModal, { BaseModalProps } from '.';
+import ModalBase, { ModalBaseProps } from '.';
 
 export default {
-  title: 'BaseModal',
-  component: BaseModal,
+  title: 'Organisms/Modal/ModalBase',
+  component: ModalBase,
   parameters: {
     jest: ['Modal.test.tsx']
   },
@@ -14,6 +14,6 @@ export default {
   }
 } as Meta;
 
-export const ModalDefault: Story<BaseModalProps> = (args) => (
-  <BaseModal {...args} />
+export const ModalDefault: Story<ModalBaseProps> = (args) => (
+  <ModalBase {...args} />
 );

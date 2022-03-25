@@ -43,6 +43,7 @@ const FormAdd = ({ onCancel, onSubmit }: FormAddProps) => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors }
   } = useForm<FormDataProps>();
 
@@ -56,6 +57,8 @@ const FormAdd = ({ onCancel, onSubmit }: FormAddProps) => {
       value: convertToDecial(unformattedValue),
       date: fullDate
     });
+    setFormAddData(initialFormState);
+    reset();
   };
 
   return (

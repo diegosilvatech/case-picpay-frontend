@@ -8,8 +8,8 @@ import {
   Text,
   Button,
   Table,
-  AddModal,
-  DeleteModal
+  ModalAdd,
+  ModalDelete
 } from 'components';
 import { PaymentRecordProps } from 'core/types/payments/globals';
 
@@ -23,9 +23,9 @@ export default function PaymentsPage() {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [pageSize, setPageSize] = useState<number>(5);
 
-  const [showAddModal, setShowAddModal] = useState<boolean>(false);
+  const [showModalAdd, setShowModalAdd] = useState<boolean>(false);
 
-  const [showDeleteModal, setShowDeleteModal] = useState<boolean>(false);
+  const [showModalDelete, setShowModalDelete] = useState<boolean>(false);
   const [selectedPaymentToDelete, setSelectedPaymentToDelete] =
     useState<PaymentRecordProps>({
       id: 0,
@@ -49,11 +49,11 @@ export default function PaymentsPage() {
 
   const handleSubmitAddPayment = (addPaymentData: PaymentRecordProps) => {
     addPayment(addPaymentData);
-    setShowAddModal(false);
+    setShowModalAdd(false);
   };
 
   const handleClickDeleteButton = (record: PaymentRecordProps) => {
-    setShowDeleteModal(true);
+    setShowModalDelete(true);
     setSelectedPaymentToDelete(record);
   };
 
@@ -62,19 +62,19 @@ export default function PaymentsPage() {
       (payment) => payment.id === selectedPaymentToDelete.id
     );
     deletePayment(paymentFoudToBeDeleted[0].id);
-    setShowDeleteModal(false);
+    setShowModalDelete(false);
   };
 
   return (
     <PaymentsProvider>
-      <AddModal
-        visible={showAddModal}
-        onCancel={() => setShowAddModal(false)}
+      <ModalAdd
+        visible={showModalAdd}
+        onCancel={() => setShowModalAdd(false)}
         onSubmit={handleSubmitAddPayment}
       />
-      <DeleteModal
-        visible={showDeleteModal}
-        onCancel={() => setShowDeleteModal(false)}
+      <ModalDelete
+        visible={showModalDelete}
+        onCancel={() => setShowModalDelete(false)}
         paymentRecord={selectedPaymentToDelete}
         onSubmit={handleSubmitDeletePayment}
       />
@@ -85,7 +85,7 @@ export default function PaymentsPage() {
             <Text type="h1" size="extraLarge" weight="semiBold">
               Meus pagamentos
             </Text>
-            <Button onClick={() => setShowAddModal(true)}>
+            <Button onClick={() => setShowModalAdd(true)}>
               Adicionar pagamento
             </Button>
           </s.HeaderWrapper>

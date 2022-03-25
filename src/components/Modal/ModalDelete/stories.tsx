@@ -1,12 +1,12 @@
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import DeleteModal, { DeleteModalProps } from '.';
+import ModalDelete, { ModalDeleteProps } from '.';
 
 export default {
-  title: 'DeleteModal',
-  component: DeleteModal,
+  title: 'Organisms/Modal/ModalDelete',
+  component: ModalDelete,
   parameters: {
-    jest: ['DeleteModal.test.tsx']
+    jest: ['ModalDelete.test.tsx']
   },
   args: {
     visible: true,
@@ -24,6 +24,6 @@ export default {
   }
 } as Meta;
 
-export const DeleteModalDefault: Story<DeleteModalProps> = (args) => (
-  <DeleteModal {...args} />
+export const ModalDeleteDefault: Story<ModalDeleteProps> = (args) => (
+  <ModalDelete {...args} />
 );
