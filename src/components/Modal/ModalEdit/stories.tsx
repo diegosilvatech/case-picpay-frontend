@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import ModalEdit, { ModalEditProps } from '.';
 
 export default {
-  title: 'ModalEdit',
+  title: 'Organisms/Modal/ModalEdit',
   component: ModalEdit,
   parameters: {
     jest: ['ModalEdit.test.tsx']
