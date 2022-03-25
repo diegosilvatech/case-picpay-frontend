@@ -10,7 +10,7 @@ export default {
   component: FieldText,
   args: {
     name: 'name',
-    label: 'Name',
+    label: 'name',
     type: 'text',
     iconPosition: 'right',
     icon: <PencilIcon />,

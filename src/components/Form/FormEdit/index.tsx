@@ -30,7 +30,11 @@ export type FormEditProps = {
   onSubmit: (formData: FormDataProps) => void;
 };
 
-const FormEdit = ({ paymentRecord, onCancel, onSubmit }: FormEditProps) => {
+export default function FormEdit({
+  paymentRecord,
+  onCancel,
+  onSubmit
+}: FormEditProps) {
   const normalizedRecord = {
     ...paymentRecord,
     date: getCurrentDate(),
@@ -149,6 +153,4 @@ const FormEdit = ({ paymentRecord, onCancel, onSubmit }: FormEditProps) => {
       </s.ButtonsWrapper>
     </s.Wrapper>
   );
-};
-
-export default FormEdit;
+}

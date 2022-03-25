@@ -17,7 +17,7 @@ export const UserImageWrapper = styled.div`
     background: linear-gradient(
       to top left,
       ${theme.colors.primary},
-      ${theme.colors.alternative}
+      '#21C25E'
     );
     width: 8.5rem;
     height: 8.5rem;
