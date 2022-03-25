@@ -9,12 +9,14 @@ export const Wrapper = styled.form`
 
 export const ErrorMessageWrapper = styled.div`
   ${({ theme }) => css`
-    margin-bottom: ${theme.spacings.medium};
+    margin-bottom: ${theme.spacings.large};
+    position: relative;
   `}
 `;
 
 export const ErrorMessage = styled.span`
   ${({ theme }) => css`
     color: ${theme.colors.error};
+    position: absolute;
   `}
 `;
