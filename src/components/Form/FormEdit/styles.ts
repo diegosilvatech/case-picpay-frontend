@@ -27,7 +27,7 @@ export const ErrorMessageWrapper = styled.div`
 
 export const ErrorMessage = styled.span`
   ${({ theme }) => css`
-    color: ${theme.colors.error};
+    color: ${theme.colors.danger};
     position: absolute;
   `}
 `;

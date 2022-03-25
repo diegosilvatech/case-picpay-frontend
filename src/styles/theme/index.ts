@@ -1,13 +1,11 @@
 export default {
   colors: {
     primary: '#11c76f',
-    secondary: '#21C25E',
+    alternative: '#21C25E',
 
     white: '#FFFFFF',
     black: '#000000',
-
-    error: '#DD2C00',
-    gray: '#00000080'
+    danger: '#DD2C00'
   },
   grid: {
     smarthphone: {

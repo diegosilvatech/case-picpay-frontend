@@ -17,7 +17,7 @@ export const UserImageWrapper = styled.div`
     background: linear-gradient(
       to top left,
       ${theme.colors.primary},
-      ${theme.colors.secondary}
+      ${theme.colors.alternative}
     );
     width: 8.5rem;
     height: 8.5rem;
@@ -69,7 +69,7 @@ export const BinIconWrapper = styled.div`
 
     &:hover {
       svg {
-        color: ${theme.colors.error};
+        color: ${theme.colors.danger};
         transition: color ${theme.transition.fast};
       }
     }
