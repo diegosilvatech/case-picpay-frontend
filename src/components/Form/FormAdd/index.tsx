@@ -1,8 +1,15 @@
+import { useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 
 import { Field, Button } from 'components';
 import { PaymentRecordProps } from 'core/types/payments/globals';
 import { getCurrentDate, getCurrentTime } from 'core/helpers/date';
+
+import {
+  applyCurrencyMask,
+  removeCurrencyMask,
+  convertToDecial
+} from 'core/helpers/currency';
 
 import * as s from './styles';
 
@@ -18,12 +25,6 @@ export type FormAddProps = {
 };
 
 const FormAdd = ({ onCancel, onSubmit }: FormAddProps) => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors }
-  } = useForm<FormDataProps>();
-
   const initialFormState: InitialFormStateProps = {
     id: 0,
     name: '',
@@ -36,8 +37,25 @@ const FormAdd = ({ onCancel, onSubmit }: FormAddProps) => {
     isPayed: false
   };
 
+  const [formAddData, setFormAddData] =
+    useState<InitialFormStateProps>(initialFormState);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm<FormDataProps>();
+
   const _onSubmit: SubmitHandler<FormDataProps> = (formData) => {
-    onSubmit({ ...initialFormState, ...formData });
+    const fullDate = `${formData.date + getCurrentTime()}`;
+    const unformattedValue = removeCurrencyMask(formAddData.value);
+
+    onSubmit({
+      ...formAddData,
+      ...formData,
+      value: convertToDecial(unformattedValue),
+      date: fullDate
+    });
   };
 
   return (
@@ -60,6 +78,14 @@ const FormAdd = ({ onCancel, onSubmit }: FormAddProps) => {
             name="date"
             label="date"
             type="date"
+            min={getCurrentDate()}
+            value={formAddData.date}
+            onChange={(event) =>
+              setFormAddData({
+                ...formAddData,
+                date: event.target.value
+              })
+            }
             register={register}
           />
           <s.ErrorMessageWrapper>
@@ -71,6 +97,10 @@ const FormAdd = ({ onCancel, onSubmit }: FormAddProps) => {
             name="value"
             label="value"
             type="text"
+            onChange={(event) => {
+              setFormAddData({ ...formAddData, value: event.target.value });
+            }}
+            value={applyCurrencyMask(formAddData.value)}
             register={register}
           />
           <s.ErrorMessageWrapper>

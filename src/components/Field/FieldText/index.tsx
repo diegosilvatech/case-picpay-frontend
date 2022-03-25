@@ -1,11 +1,5 @@
 import { InputHTMLAttributes } from 'react';
 
-import {
-  applyCurrencyMask,
-  removeCurrencyMask,
-  convertToDecial
-} from 'core/helpers/currency';
-
 import * as s from './styles';
 
 export type FieldTextProps = {

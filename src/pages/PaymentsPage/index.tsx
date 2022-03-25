@@ -48,8 +48,7 @@ export default function PaymentsPage() {
   };
 
   const handleSubmitAddPayment = (addPaymentData: PaymentRecordProps) => {
-    // addPayment(addPaymentData);
-    console.log('PAYMENTS_PAGE_ADD_SUBMIT', addPaymentData);
+    addPayment(addPaymentData);
     setShowAddModal(false);
   };
 

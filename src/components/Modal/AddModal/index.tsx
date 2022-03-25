@@ -1,4 +1,4 @@
-import { BaseModal, AddForm, Form } from 'components';
+import { BaseModal, Form } from 'components';
 
 import { PaymentRecordProps } from 'core/types/payments/globals';
 
@@ -19,7 +19,7 @@ const AddModal = ({ visible, onCancel, onSubmit }: AddModalProps) => {
       visible={visible}
       onCancel={onCancel}
     >
-      <AddForm onSubmit={handleSubmit} onCancel={onCancel} />
+      <Form.FormAdd onSubmit={handleSubmit} onCancel={onCancel} />
     </BaseModal>
   );
 };
