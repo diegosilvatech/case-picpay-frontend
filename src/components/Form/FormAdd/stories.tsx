@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import FormAdd, { FormAddProps } from '.';
 
 export default {
-  title: '@New/FormAdd',
+  title: 'Organisms/Form/FormAdd',
   component: FormAdd,
   parameters: {
     jest: ['FormAdd.test.tsx']
