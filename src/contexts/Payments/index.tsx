@@ -1,7 +1,7 @@
 import { createContext, useState } from 'react';
 import { AxiosResponse } from 'axios';
 
-import { getTasks, createTask, deleteTask } from 'core/services';
+import { getTasks, createTask, editTask, deleteTask } from 'core/services';
 
 import { PaymentRecordProps } from 'core/types/payments/globals';
 
@@ -9,6 +9,7 @@ export type PaymentsProviderValueProps = {
   paymentRecords: PaymentRecordProps[];
   getPayments: () => void;
   addPayment: (payment: PaymentRecordProps) => void;
+  editPayment: (paymentId: number, payment: PaymentRecordProps) => void;
   deletePayment: (paymendId: number) => void;
 };
 
@@ -20,6 +21,7 @@ export const PaymentsContext = createContext<PaymentsProviderValueProps>({
   paymentRecords: [],
   getPayments: () => ({}),
   addPayment: () => ({}),
+  editPayment: () => ({}),
   deletePayment: () => ({})
 });
 
@@ -37,6 +39,19 @@ export const PaymentsProvider = ({ children }: PaymentProviderProps) => {
     );
     setPayments([...paymentRecords, response.data]);
   };
+  const editPayment = async (
+    paymentId: number,
+    payment: PaymentRecordProps
+  ) => {
+    const response: AxiosResponse<PaymentRecordProps> = await editTask(
+      paymentId,
+      payment
+    );
+    const newPaymentList = paymentRecords.filter(
+      (paymentRecord) => paymentRecord.id !== paymentId
+    );
+    setPayments([...newPaymentList, response.data]);
+  };
 
   const deletePayment = async (paymentId: number) => {
     deleteTask(paymentId);
@@ -50,6 +65,7 @@ export const PaymentsProvider = ({ children }: PaymentProviderProps) => {
     paymentRecords,
     getPayments,
     addPayment,
+    editPayment,
     deletePayment
   };
 

@@ -33,6 +33,7 @@ export type FormEditProps = {
 const FormEdit = ({ paymentRecord, onCancel, onSubmit }: FormEditProps) => {
   const normalizedRecord = {
     ...paymentRecord,
+    date: getCurrentDate(),
     value: applyCurrencyMask(String(paymentRecord.value * 100))
   };
 
@@ -56,9 +57,10 @@ const FormEdit = ({ paymentRecord, onCancel, onSubmit }: FormEditProps) => {
   const _onSubmit: SubmitHandler<FormDataProps> = (formData) => {
     const fullDate = `${formData.date + getCurrentTime()}`;
     const unformattedValue = removeCurrencyMask(formEditData.value);
+
     onSubmit({
-      ...formEditData,
       ...formData,
+      ...formEditData,
       value: convertToDecial(unformattedValue),
       date: fullDate
     });

@@ -20,8 +20,13 @@ export default function PaymentsPage() {
     isPayed: false
   };
   const { logout, user } = useContext(AuthContext);
-  const { getPayments, paymentRecords, addPayment, deletePayment } =
-    useContext(PaymentsContext);
+  const {
+    getPayments,
+    addPayment,
+    editPayment,
+    deletePayment,
+    paymentRecords
+  } = useContext(PaymentsContext);
 
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [pageSize, setPageSize] = useState<number>(5);
@@ -59,8 +64,7 @@ export default function PaymentsPage() {
   };
 
   const handleSubmitEditPayment = (editPaymentData: PaymentRecordProps) => {
-    // addPayment(addPaymentData);
-    console.log('PAYMENTS_PAGE_EDIT_SUBMIT', editPaymentData);
+    editPayment(editPaymentData.id, editPaymentData);
     setShowModalEdit(false);
   };
 
