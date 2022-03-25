@@ -1,6 +1,7 @@
 import { Story, Meta } from '@storybook/react/types-6-0';
+import { useForm } from 'react-hook-form';
 
-import { MailIcon } from 'assets/icons';
+import { PencilIcon } from 'assets/icons';
 
 import FieldText, { FieldTextProps } from '.';
 
@@ -8,12 +9,17 @@ export default {
   title: '@New/FieldText',
   component: FieldText,
   args: {
-    icon: <MailIcon />,
+    name: 'name',
+    label: 'Name',
+    type: 'text',
     iconPosition: 'right',
-    label: 'Nome'
+    icon: <PencilIcon />,
+    register: () => null
   }
 } as Meta;
 
-export const FieldTextDefault: Story<FieldTextProps> = (args) => (
-  <FieldText {...args} />
-);
+export const FieldTextDefault: Story<FieldTextProps> = (args) => {
+  const { register } = useForm();
+
+  return <FieldText register={register} {...args} />;
+};
