@@ -1,29 +1,24 @@
-import { useState, useContext } from 'react';
+import { useContext } from 'react';
 
 import { AuthContext } from 'contexts';
 
-import { Container, LoginForm, Logo } from 'components';
+import { Container, Logo, Form } from 'components';
 
 import * as s from './styles';
 
+type FormDataProps = {
+  email: string;
+  password: string;
+};
+
 export default function LoginPage() {
-  const { login, errorMessage } = useContext(AuthContext);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const { login } = useContext(AuthContext);
 
-  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    if (email !== '' && password !== '') {
-      login(email, password);
-    }
+  const onSubmit = (formData: FormDataProps) => {
+    const { email, password } = formData;
+    login(email, password);
   };
 
-  const formData = {
-    email,
-    setEmail,
-    password,
-    setPassword
-  };
   return (
     <s.Wrapper>
       <Container>
@@ -31,7 +26,7 @@ export default function LoginPage() {
           <s.LogoWrapper>
             <Logo />
           </s.LogoWrapper>
-          <LoginForm onSubmit={onSubmit} data={formData} error={errorMessage} />
+          <Form.FormLogin onSubmit={onSubmit} />
         </s.FormWrapper>
       </Container>
     </s.Wrapper>

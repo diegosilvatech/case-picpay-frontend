@@ -13,7 +13,6 @@ type AuthProviderValueProps = {
   authenticated: boolean;
   user: UserProps;
   loading: boolean;
-  errorMessage: string;
   login: (email: string, password: string) => void;
   logout: () => void;
 };
@@ -26,7 +25,6 @@ export const AuthContext = createContext<AuthProviderValueProps>({
   authenticated: false,
   user: { id: 0, name: '', email: '' },
   loading: false,
-  errorMessage: '',
   login: () => ({}),
   logout: () => ({})
 });
@@ -34,7 +32,6 @@ export const AuthContext = createContext<AuthProviderValueProps>({
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [user, setUser] = useState<UserProps>(null);
   const [loading, setLoading] = useState<boolean>(true);
-  const [errorMessage, setErrorMessage] = useState<string>('');
 
   const navigate = useNavigate();
 
@@ -54,8 +51,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     const hasValidCredentials = (email: string, password: string) => {
       if (account.email === email && account.password === password) {
         return true;
-      } else {
-        setErrorMessage('credenciais inválidas');
       }
     };
 
@@ -83,8 +78,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     user,
     login,
     logout,
-    loading,
-    errorMessage
+    loading
   };
 
   return (
