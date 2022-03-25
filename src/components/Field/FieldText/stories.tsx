@@ -6,7 +6,7 @@ import { PencilIcon } from 'assets/icons';
 import FieldText, { FieldTextProps } from '.';
 
 export default {
-  title: 'Molecules/Form/FieldText',
+  title: 'Molecules/Field/FieldText',
   component: FieldText,
   args: {
     name: 'name',
