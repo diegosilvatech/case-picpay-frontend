@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 
 import { Field, Button } from 'components';
 import { PaymentRecordProps } from 'core/types/payments/globals';
@@ -10,6 +11,8 @@ import {
   removeCurrencyMask,
   convertToDecial
 } from 'core/helpers/currency';
+
+import { addPaymentValidationSchema } from 'core/validations/addPayment';
 
 import * as s from './styles';
 
@@ -45,7 +48,9 @@ export default function FormAdd({ onCancel, onSubmit }: FormAddProps) {
     handleSubmit,
     reset,
     formState: { errors }
-  } = useForm<FormDataProps>();
+  } = useForm<FormDataProps>({
+    resolver: yupResolver(addPaymentValidationSchema)
+  });
 
   const _onSubmit: SubmitHandler<FormDataProps> = (formData) => {
     const fullDate = `${formData.date + getCurrentTime()}`;
@@ -75,7 +80,9 @@ export default function FormAdd({ onCancel, onSubmit }: FormAddProps) {
             register={register}
           />
           <s.ErrorMessageWrapper>
-            {errors.name && <s.ErrorMessage>invalid name</s.ErrorMessage>}
+            {errors.name && (
+              <s.ErrorMessage>{errors.name.message}</s.ErrorMessage>
+            )}
           </s.ErrorMessageWrapper>
           <Field.FieldText
             name="date"
@@ -91,9 +98,7 @@ export default function FormAdd({ onCancel, onSubmit }: FormAddProps) {
             }
             register={register}
           />
-          <s.ErrorMessageWrapper>
-            {errors.date && <s.ErrorMessage>invalid date</s.ErrorMessage>}
-          </s.ErrorMessageWrapper>
+          <s.ErrorMessageWrapper></s.ErrorMessageWrapper>
         </s.FormColumn>
         <s.FormColumn>
           <Field.FieldText
@@ -107,7 +112,9 @@ export default function FormAdd({ onCancel, onSubmit }: FormAddProps) {
             register={register}
           />
           <s.ErrorMessageWrapper>
-            {errors.value && <s.ErrorMessage>invalid value</s.ErrorMessage>}
+            {errors.value && (
+              <s.ErrorMessage>{errors.value.message}</s.ErrorMessage>
+            )}
           </s.ErrorMessageWrapper>
 
           <Field.FieldText
@@ -117,7 +124,9 @@ export default function FormAdd({ onCancel, onSubmit }: FormAddProps) {
             register={register}
           />
           <s.ErrorMessageWrapper>
-            {errors.title && <s.ErrorMessage>invalid title</s.ErrorMessage>}
+            {errors.title && (
+              <s.ErrorMessage>{errors.title.message}</s.ErrorMessage>
+            )}
           </s.ErrorMessageWrapper>
         </s.FormColumn>
       </s.FormRow>

@@ -1,4 +1,8 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+
+import { loginValidationSchema } from 'core/validations/login';
+
 import { Field, Button } from 'components';
 
 import * as s from './styles';
@@ -17,7 +21,9 @@ export default function FormLogin({ onSubmit }: FormLoginProps) {
     register,
     handleSubmit,
     formState: { errors }
-  } = useForm<FormDataProps>();
+  } = useForm<FormDataProps>({
+    resolver: yupResolver(loginValidationSchema)
+  });
 
   const _onSubmit: SubmitHandler<FormDataProps> = (formData) => {
     onSubmit(formData);
@@ -34,7 +40,9 @@ export default function FormLogin({ onSubmit }: FormLoginProps) {
         register={register}
       />
       <s.ErrorMessageWrapper>
-        {errors.email && <s.ErrorMessage>e-mail inválido</s.ErrorMessage>}
+        {errors.email && (
+          <s.ErrorMessage>{errors.email.message}</s.ErrorMessage>
+        )}
       </s.ErrorMessageWrapper>
       <Field.FieldText
         name="password"
@@ -43,7 +51,9 @@ export default function FormLogin({ onSubmit }: FormLoginProps) {
         register={register}
       />
       <s.ErrorMessageWrapper>
-        {errors.password && <s.ErrorMessage>senha inválida</s.ErrorMessage>}
+        {errors.password && (
+          <s.ErrorMessage>{errors.password.message}</s.ErrorMessage>
+        )}
       </s.ErrorMessageWrapper>
       <Button type="submit" fullWidth>
         entrar

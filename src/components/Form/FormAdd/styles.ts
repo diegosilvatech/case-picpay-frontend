@@ -19,7 +19,7 @@ export const FormColumn = styled.div`
 
 export const ErrorMessageWrapper = styled.div`
   ${({ theme }) => css`
-    margin-bottom: ${theme.spacings.medium};
+    margin-bottom: ${theme.spacings.large};
     padding-left: ${theme.spacings.extraSmall};
     position: relative;
   `}
