@@ -66,7 +66,7 @@ export default function FormDelete({
         <Button
           type="submit"
           fullWidth
-          variant="error"
+          variant="danger"
           onClick={() => onSubmit()}
         >
           delete

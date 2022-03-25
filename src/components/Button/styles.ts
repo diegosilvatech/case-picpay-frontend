@@ -20,7 +20,7 @@ const buttonModifiers = {
       background: ${darken(0.05, theme.colors.white)};
     }
   `,
-  error: (theme: DefaultTheme) => css`
+  danger: (theme: DefaultTheme) => css`
     background: ${theme.colors.danger};
     color: ${theme.colors.white};
 
