@@ -15,6 +15,7 @@ export type TableProps = {
   currentPage: number;
   pageSize: number;
   total: number;
+  handleClickEditButton: (record: PaymentRecordProps) => void;
   handleClickDeleteButton: (record: PaymentRecordProps) => void;
   handlePageChange: (currentPage: number, pageSize: number) => void;
 };
@@ -39,6 +40,7 @@ const Table = ({
   currentPage,
   pageSize,
   total,
+  handleClickEditButton,
   handleClickDeleteButton,
   handlePageChange
 }: TableProps) => {
@@ -174,9 +176,7 @@ const Table = ({
       render: (record: PaymentRecordProps) => {
         return (
           <AntdSpace size="middle">
-            <s.PencilIconWrapper
-              onClick={() => console.log('call EDIT', record.name)}
-            >
+            <s.PencilIconWrapper onClick={() => handleClickEditButton(record)}>
               <PencilIcon />
             </s.PencilIconWrapper>
             <s.BinIconWrapper onClick={() => handleClickDeleteButton(record)}>

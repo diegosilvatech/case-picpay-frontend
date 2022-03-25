@@ -36,6 +36,10 @@ export const getCurrentDate = () => {
   return new Date().toISOString().split('T')[0];
 };
 
+export const getSpecificDate = (date: string) => {
+  return date.split('T')[0];
+};
+
 export const getCurrentTime = () => {
   return `T${new Date().toISOString().split('T')[1]}`;
 };

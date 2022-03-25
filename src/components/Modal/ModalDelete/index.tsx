@@ -4,8 +4,8 @@ import { PaymentRecordProps } from 'core/types/payments/globals';
 
 export type ModalDeleteProps = {
   visible: boolean;
-  onCancel: () => void;
   paymentRecord: PaymentRecordProps;
+  onCancel: () => void;
   onSubmit: () => void;
 };
 

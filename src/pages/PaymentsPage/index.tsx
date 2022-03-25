@@ -8,6 +8,17 @@ import { PaymentRecordProps } from 'core/types/payments/globals';
 import * as s from './styles';
 
 export default function PaymentsPage() {
+  const initialState = {
+    id: 0,
+    name: '',
+    username: 'diegosilvatech',
+    title: '',
+    value: 0,
+    date: '',
+    image:
+      'https://d1fdloi71mui9q.cloudfront.net/xDiFfl33T8CKfh4oT1RP_gw8aK99eof1l95P0',
+    isPayed: false
+  };
   const { logout, user } = useContext(AuthContext);
   const { getPayments, paymentRecords, addPayment, deletePayment } =
     useContext(PaymentsContext);
@@ -17,19 +28,12 @@ export default function PaymentsPage() {
 
   const [showModalAdd, setShowModalAdd] = useState<boolean>(false);
 
+  const [showModalEdit, setShowModalEdit] = useState<boolean>(false);
   const [showModalDelete, setShowModalDelete] = useState<boolean>(false);
+  const [selectedPaymentToEdit, setSelectedPaymentToEdit] =
+    useState<PaymentRecordProps>(initialState);
   const [selectedPaymentToDelete, setSelectedPaymentToDelete] =
-    useState<PaymentRecordProps>({
-      id: 0,
-      name: '',
-      username: 'diegosilvatech',
-      title: '',
-      value: 0,
-      date: '',
-      image:
-        'https://d1fdloi71mui9q.cloudfront.net/xDiFfl33T8CKfh4oT1RP_gw8aK99eof1l95P0',
-      isPayed: false
-    });
+    useState<PaymentRecordProps>(initialState);
 
   useEffect(() => {
     getPayments();
@@ -39,14 +43,25 @@ export default function PaymentsPage() {
     setCurrentPage(currentPage), setPageSize(pageSize);
   };
 
-  const handleSubmitAddPayment = (addPaymentData: PaymentRecordProps) => {
-    addPayment(addPaymentData);
-    setShowModalAdd(false);
+  const handleClickEditButton = (record: PaymentRecordProps) => {
+    setShowModalEdit(true);
+    setSelectedPaymentToEdit(record);
   };
 
   const handleClickDeleteButton = (record: PaymentRecordProps) => {
     setShowModalDelete(true);
     setSelectedPaymentToDelete(record);
+  };
+
+  const handleSubmitAddPayment = (addPaymentData: PaymentRecordProps) => {
+    addPayment(addPaymentData);
+    setShowModalAdd(false);
+  };
+
+  const handleSubmitEditPayment = (editPaymentData: PaymentRecordProps) => {
+    // addPayment(addPaymentData);
+    console.log('PAYMENTS_PAGE_EDIT_SUBMIT', editPaymentData);
+    setShowModalEdit(false);
   };
 
   const handleSubmitDeletePayment = () => {
@@ -63,6 +78,12 @@ export default function PaymentsPage() {
         visible={showModalAdd}
         onCancel={() => setShowModalAdd(false)}
         onSubmit={handleSubmitAddPayment}
+      />
+      <Modal.ModalEdit
+        visible={showModalEdit}
+        onCancel={() => setShowModalEdit(false)}
+        paymentRecord={selectedPaymentToEdit}
+        onSubmit={handleSubmitEditPayment}
       />
       <Modal.ModalDelete
         visible={showModalDelete}
@@ -89,6 +110,7 @@ export default function PaymentsPage() {
               pageSize={pageSize}
               handlePageChange={handlePageChange}
               total={paymentRecords.length}
+              handleClickEditButton={handleClickEditButton}
               handleClickDeleteButton={handleClickDeleteButton}
             />
           </s.TableWrapper>
