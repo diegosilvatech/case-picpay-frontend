@@ -1,4 +1,4 @@
-import FieldText from '../FieldText';
+import FieldText from './FieldText';
 
 const Field = {
   FieldText
