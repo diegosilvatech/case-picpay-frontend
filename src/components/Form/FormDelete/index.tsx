@@ -25,7 +25,7 @@ export default function FormDelete({
           <Text
             type="span"
             weight="semiBold"
-            color="error"
+            color="danger"
             isUpperCase
           >{` delete`}</Text>
           <Text type="span">{` the payment of`}</Text>
