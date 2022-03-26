@@ -14,7 +14,7 @@ const getCredentials = async () => {
 const getTasks = async () => {
   try {
     const response = await api.get(`/tasks`);
-    return response.status === 200 ? response : null;
+    return response.status === 200 ? response.data : null;
   } catch (error) {
     console.error(error);
   }
@@ -23,7 +23,7 @@ const getTasks = async () => {
 const createTask = async (task: PaymentRecordProps) => {
   try {
     const response = await api.post(`/tasks`, task);
-    return response.status === 201 ? response : null;
+    return response.status === 201 ? response.data : null;
   } catch (error) {
     console.error(error);
     return null;
@@ -33,7 +33,7 @@ const createTask = async (task: PaymentRecordProps) => {
 const editTask = async (taskId: number, task: PaymentRecordProps) => {
   try {
     const response = await api.put(`/tasks/${taskId}`, task);
-    return response.status === 200 ? response : null;
+    return response.status === 200 ? response.data : null;
   } catch (error) {
     console.error(error);
     return null;

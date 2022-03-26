@@ -1,8 +1,6 @@
 import { createContext, useState } from 'react';
-import { AxiosResponse } from 'axios';
 
 import { getTasks, createTask, editTask, deleteTask } from 'core/services';
-
 import { PaymentRecordProps } from 'core/types/payments/globals';
 
 export type PaymentsProviderValueProps = {
@@ -29,18 +27,16 @@ export const PaymentsProvider = ({ children }: PaymentProviderProps) => {
   const [paymentRecords, setPayments] = useState<PaymentRecordProps[]>([]);
 
   const getPayments = async () => {
-    const response = await getTasks();
-    if (response) {
-      setPayments(response.data);
+    const data = await getTasks();
+    if (data) {
+      setPayments(data);
     }
   };
 
   const addPayment = async (payment: PaymentRecordProps) => {
-    const response: AxiosResponse<PaymentRecordProps> | null = await createTask(
-      payment
-    );
-    if (response) {
-      setPayments([...paymentRecords, response.data]);
+    const data = await createTask(payment);
+    if (data) {
+      setPayments([...paymentRecords, data]);
     }
   };
 
@@ -48,15 +44,12 @@ export const PaymentsProvider = ({ children }: PaymentProviderProps) => {
     paymentId: number,
     payment: PaymentRecordProps
   ) => {
-    const response: AxiosResponse<PaymentRecordProps> | null = await editTask(
-      paymentId,
-      payment
-    );
-    if (response) {
+    const data = await editTask(paymentId, payment);
+    if (data) {
       const newPaymentList = paymentRecords.filter(
         (paymentRecord) => paymentRecord.id !== paymentId
       );
-      setPayments([...newPaymentList, response.data]);
+      setPayments([...newPaymentList, data]);
     }
   };
 
