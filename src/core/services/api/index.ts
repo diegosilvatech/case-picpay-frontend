@@ -12,19 +12,42 @@ const getCredentials = async () => {
 };
 
 const getTasks = async () => {
-  return api.get(`/tasks`);
+  try {
+    const response = await api.get(`/tasks`);
+    return response.status === 200 ? response : null;
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 const createTask = async (task: PaymentRecordProps) => {
-  return api.post(`/tasks`, task);
+  try {
+    const response = await api.post(`/tasks`, task);
+    return response.status === 201 ? response : null;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
 };
 
 const editTask = async (taskId: number, task: PaymentRecordProps) => {
-  return api.put(`/tasks/${taskId}`, task);
+  try {
+    const response = await api.put(`/tasks/${taskId}`, task);
+    return response.status === 200 ? response : null;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
 };
 
 const deleteTask = async (taskId: number) => {
-  return api.delete(`/tasks/${taskId}`);
+  try {
+    const response = await api.delete(`/tasks/${taskId}`);
+    return response.status === 200;
+  } catch (error) {
+    console.error(error);
+    return false;
+  }
 };
 
 export { api, getCredentials, getTasks, createTask, editTask, deleteTask };

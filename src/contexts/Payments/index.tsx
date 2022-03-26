@@ -30,35 +30,43 @@ export const PaymentsProvider = ({ children }: PaymentProviderProps) => {
 
   const getPayments = async () => {
     const response = await getTasks();
-    setPayments(response.data);
+    if (response) {
+      setPayments(response.data);
+    }
   };
 
   const addPayment = async (payment: PaymentRecordProps) => {
-    const response: AxiosResponse<PaymentRecordProps> = await createTask(
+    const response: AxiosResponse<PaymentRecordProps> | null = await createTask(
       payment
     );
-    setPayments([...paymentRecords, response.data]);
+    if (response) {
+      setPayments([...paymentRecords, response.data]);
+    }
   };
+
   const editPayment = async (
     paymentId: number,
     payment: PaymentRecordProps
   ) => {
-    const response: AxiosResponse<PaymentRecordProps> = await editTask(
+    const response: AxiosResponse<PaymentRecordProps> | null = await editTask(
       paymentId,
       payment
     );
-    const newPaymentList = paymentRecords.filter(
-      (paymentRecord) => paymentRecord.id !== paymentId
-    );
-    setPayments([...newPaymentList, response.data]);
+    if (response) {
+      const newPaymentList = paymentRecords.filter(
+        (paymentRecord) => paymentRecord.id !== paymentId
+      );
+      setPayments([...newPaymentList, response.data]);
+    }
   };
 
   const deletePayment = async (paymentId: number) => {
-    deleteTask(paymentId);
-    const newPaymentList = paymentRecords.filter(
-      (paymentRecord) => paymentRecord.id !== paymentId
-    );
-    setPayments(newPaymentList);
+    if (await deleteTask(paymentId)) {
+      const newPaymentList = paymentRecords.filter(
+        (paymentRecord) => paymentRecord.id !== paymentId
+      );
+      setPayments(newPaymentList);
+    }
   };
 
   const paymentsProviderValue: PaymentsProviderValueProps = {
