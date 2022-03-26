@@ -1,12 +1,30 @@
 # CASE | PICPAY FRONTEND
 
-##### react, typescript, styled-componets, storybook, jest, react testing library and more...
+##### react, typescript, styled-componets, storybook, jest, heroku and more...
 
 ---
+
+![made by @diegosilvatech](https://img.shields.io/badge/made%20by-Diego%20Silva-11c76f?style=for-the-badge)
+![made by @diegosilvatech](https://img.shields.io/badge/twitch-@diegosilvatech-6441a5?style=for-the-badge&logo=twitch)
+![made by @diegosilvatech](https://img.shields.io/badge/linkedin-@diegosilvatech-0e76a8?style=for-the-badge&logo=linkedin)
 
 ## ABOUT THIS PROJECT
 
 This project contains the entire frontend application. The **Frontend** application was designed to meet the company's front end development test **[PICPAY](https://www.picpay.com/)**.
+
+This application is also available at the links: 
+- [x] Frontend [https://case-picpay-frontend.netlify.app/](https://case-picpay-frontend.netlify.app/)
+- [x] Storybook [https://case-picpay-frontend-storybook.netlify.app/](https://case-picpay-frontend-storybook.netlify.app/)
+- [x] API [https://case-picpay-api.herokuapp.com/](https://case-picpay-api.herokuapp.com/)
+
+<p align="center">
+  <img src="./public/gallery/page-login.png" width="45%" />
+  <img src="./public/gallery/page-payments.png" width="45%" />
+  <img src="./public/gallery/page-payments-add.png" width="45%" />
+  <img src="./public/gallery/page-payments-delete.png" width="45%" />
+  <img src="./public/gallery/storybook-button.png" width="45%" />
+  <img src="./public/gallery/storybook-table.png" width="45%" />
+</p>
 
 ---
 
@@ -20,11 +38,18 @@ yarn install
 ```
 
 ```jsx
+// run json-server on http://localhost:8000/
+yarn start:api
+```
+_you can see the **server** in production at the link: [https://case-picpay-api.herokuapp.com/](https://case-picpay-api.herokuapp.com/)._
+
+```jsx
 // run project on http://localhost:3000/
 yarn start
 ```
+_run the app in the development mode by opening [http://localhost:3000](http://localhost:3000) to view it in the browser. The page will reload if you make edits._
 
-_Run the app in the development mode by opening [http://localhost:3000](http://localhost:3000) to view it in the browser. The page will reload if you make edits._
+_**if you prefer**, you can see the **frontend application** in production at the link: [https://case-picpay-frontend.netlify.app/](https://case-picpay-frontend.netlify.app/)._
 
 ```jsx
 // creates .jest-test-results.json file to @storybook/addon-jest
@@ -74,12 +99,19 @@ _Learn how to install `yarn` through the [official documentation](https://yarnpk
 
 ## MAIN TECHNOLOGIES USED
 
+### [axios](https://github.com/axios/axios/)
 
-#### [typescript](https://www.typescriptlang.org/)
+> To make queries on external API's.
+
+### [typescript](https://www.typescriptlang.org/)
 
 > To give more power to my JavaScript code.
 
-#### [styled-components](https://styled-components.com/)
+### [react-router-dom](https://reactrouter.com/)
+
+> To manage the application routing system.
+
+### [styled-components](https://styled-components.com/)
 
 > To stylize my app as components.
 
