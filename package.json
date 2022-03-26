@@ -8,7 +8,7 @@
     "lint": "eslint src --max-warnings=0",
     "prepare": "husky install",
     "start": "react-scripts start",
-    "start:api": "json-server --watch src/mock/db.json --port 8000",
+    "start:api": "json-server --watch src/db/db.json --port 8000",
     "test": "jest --maxWorkers=50%",
     "test:watch": "jest --watch --maxWorkers=25%",
     "test:ci": "jest --runInBand",

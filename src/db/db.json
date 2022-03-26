@@ -1,0 +1,22 @@
+{
+  "tasks": [
+    {
+      "name": "Diego Silva",
+      "date": "2022-03-25T21:36:44.500Z",
+      "value": 1000,
+      "title": "Frontend Developer",
+      "id": 1,
+      "username": "diegosilvatech",
+      "image": "https://d1fdloi71mui9q.cloudfront.net/xDiFfl33T8CKfh4oT1RP_gw8aK99eof1l95P0",
+      "isPayed": false
+    }
+  ],
+  "account": [
+    {
+      "id": 0,
+      "name": "usuario",
+      "email": "usuario@gmail.com",
+      "password": "usuario"
+    }
+  ]
+}
