@@ -10,7 +10,7 @@
 
 ## ABOUT THIS PROJECT
 
-This project contains the entire frontend application. The **Frontend** application was designed to meet the company's front end development test **[PICPAY](https://www.picpay.com/)**.
+This project contains the entire frontend of the **PayFriends** application. This application was designed to meet the company's frontend development test **[PICPAY](https://www.picpay.com/)**.
 
 This application is also available at the links: 
 - [x] Frontend [https://case-picpay-frontend.netlify.app/](https://case-picpay-frontend.netlify.app/)
