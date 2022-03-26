@@ -17,6 +17,14 @@ This application is also available at the links:
 - [x] Storybook [https://case-picpay-frontend-storybook.netlify.app/](https://case-picpay-frontend-storybook.netlify.app/)
 - [x] API [https://case-picpay-api.herokuapp.com/](https://case-picpay-api.herokuapp.com/)
 
+```jsx
+// access credentials are:
+  { 
+    user: "usuario@gmail.com",
+    password: "usuario"
+  }
+```
+
 <p align="center">
   <img src="./public/gallery/page-login.png" width="45%" />
   <img src="./public/gallery/page-payments.png" width="45%" />
