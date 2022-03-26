@@ -5,8 +5,8 @@
 ---
 
 [![made by @diegosilvatech](https://img.shields.io/badge/made%20by-Diego%20Silva-11c76f?style=for-the-badge)](https://linktr.ee/diegosilvatech)
-[![made by @diegosilvatech](https://img.shields.io/badge/twitch-@diegosilvatech-6441a5?style=for-the-badge&logo=twitch)](https://www.twitch.tv/diegosilvatech)
-[![made by @diegosilvatech](https://img.shields.io/badge/linkedin-@diegosilvatech-0e76a8?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/diegosilvatech)
+[![twitch](https://img.shields.io/badge/twitch-@diegosilvatech-6441a5?style=for-the-badge&logo=twitch)](https://www.twitch.tv/diegosilvatech)
+[![linkedin](https://img.shields.io/badge/linkedin-@diegosilvatech-0e76a8?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/diegosilvatech)
 
 ## ABOUT THIS PROJECT
 
@@ -119,6 +119,7 @@ _Learn how to install `yarn` through the [official documentation](https://yarnpk
 
 ## ABOUT ME
 
-[![made by @diegosilvatech](https://img.shields.io/badge/linktree-@diegosilvatech-11c76f?style=for-the-badge&logo=linktree)](https://linktr.ee/diegosilvatech)
-[![made by @diegosilvatech](https://img.shields.io/badge/twitch-@diegosilvatech-6441a5?style=for-the-badge&logo=twitch)](https://www.twitch.tv/diegosilvatech)
-[![made by @diegosilvatech](https://img.shields.io/badge/linkedin-@diegosilvatech-0e76a8?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/diegosilvatech)
+[![linktree](https://img.shields.io/badge/linktree-@diegosilvatech-11c76f?style=for-the-badge&logo=linktree)](https://linktr.ee/diegosilvatech)
+[![twitch](https://img.shields.io/badge/twitch-@diegosilvatech-6441a5?style=for-the-badge&logo=twitch)](https://www.twitch.tv/diegosilvatech)
+[![linkedin](https://img.shields.io/badge/linkedin-@diegosilvatech-0e76a8?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/diegosilvatech)
+[![youtube](https://img.shields.io/badge/linkedin-@diegosilvatech-cc0000?style=for-the-badge&logo=youtube)](https://www.youtube.com/channel/UCECVV8ODiaQtur7EyS73i1g/videos)
