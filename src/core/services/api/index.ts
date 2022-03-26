@@ -3,8 +3,7 @@ import axios from 'axios';
 import { PaymentRecordProps } from 'core/types/payments/globals';
 
 const api = axios.create({
-  baseURL: 'http://localhost:8000'
-  // baseURL: 'https://case-picpay-api.herokuapp.com/'
+  baseURL: 'https://case-picpay-api.herokuapp.com/'
 });
 
 const getCredentials = async () => {

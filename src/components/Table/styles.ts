@@ -5,6 +5,42 @@ export const Wrapper = styled.div`
     .ant-table-tbody > tr > td {
       padding: ${theme.spacings.extraSmall};
     }
+
+    .ant-table-column-sort {
+      .ant-table-column-sorter-inner {
+        .active {
+          svg {
+            color: ${theme.colors.primary};
+          }
+        }
+        .anticon {
+          & + .active {
+            svg {
+              color: ${theme.colors.primary};
+            }
+          }
+        }
+      }
+    }
+
+    .ant-pagination {
+      .ant-pagination-item {
+        border-color: ${theme.colors.primary};
+        a {
+          color: ${theme.colors.primary};
+        }
+      }
+      .ant-pagination-options {
+        .ant-select-selector {
+          border-color: ${theme.colors.primary};
+        }
+        .ant-select-focused {
+          .ant-select-selector {
+            border-color: ${theme.colors.primary};
+          }
+        }
+      }
+    }
   `}
 `;
 
