@@ -119,8 +119,6 @@ _Learn how to install `yarn` through the [official documentation](https://yarnpk
 
 ## ABOUT ME
 
-My Github profile: https://github.com/diegosilvatech/
-
-My Twitch page: https://www.twitch.tv/diegosilvatech/
-
-My Linkedin profile: https://www.linkedin.com/in/codigodasilva/
+![made by @diegosilvatech](https://img.shields.io/badge/linktree-@diegosilvatech-11c76f?style=for-the-badge&logo=linktree)
+![made by @diegosilvatech](https://img.shields.io/badge/twitch-@diegosilvatech-6441a5?style=for-the-badge&logo=twitch)
+![made by @diegosilvatech](https://img.shields.io/badge/linkedin-@diegosilvatech-0e76a8?style=for-the-badge&logo=linkedin)
